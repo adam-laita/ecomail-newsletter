@@ -19,15 +19,14 @@
 				<form class="klen__form" id="klen_email_subscribe" action="<?php echo admin_url( 'admin-ajax.php' ); ?>" method="POST" _lpchecked="1">
 					<input type="hidden" name="action" value="add_subscriber_email">
 
-						<div class="klen__form-field klen__form-field_email">
-							<label for="klen_email">Zadejte váš e-mail</label>
+					<div class="klen__form-field klen__form-field_email">
+						<label for="klen_email">Zadejte váš e-mail</label>
 
-							<input id="klen_email" type="email" name="email" placeholder="jan@novak.cz" required>
-						</div>
-						
-						<div class="klen__form-field klen__form-field_submit">
-							<button type="submit" class="klen__btn klen__btn-submit">Přihlásit se</button>
-						</div>
+						<input id="klen_email" type="email" name="email" placeholder="jan@novak.cz" required>
+					</div>
+					
+					<div class="klen__form-field klen__form-field_submit">
+						<button type="submit" class="klen__btn klen__btn-submit">Přihlásit se</button>
 					</div>
 				</form>
 			</div>
