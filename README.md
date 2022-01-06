@@ -1,1 +1,1 @@
-# Ecomail-Newsletter
+# Ecomail Newsletter
