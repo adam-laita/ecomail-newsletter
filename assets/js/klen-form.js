@@ -2,3 +2,4 @@
 /* FORM
 /*----------------------------------------------------------------- */
 
+console.log('Here will be scripts for Ecomail form...');

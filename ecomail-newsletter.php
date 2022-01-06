@@ -3,8 +3,8 @@
 		Plugin Name: Ecomail Newsletter
 		Plugin URI:  https://www.example.com/
 		Description: Ecomail Newsletter plugin.
-		Version:     1.0
-		Author:      Adam Laita, Daniel Koch
+		Version:     1.0.0
+		Author:      Daniel Koch, Adam Laita
 		Author URI:  https://www.example.com/
 		License:     GPL3
 		License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -14,12 +14,17 @@
 
 	/* ------------------------------ CONSTANTS ------------------------------ */
 
-	// Paths
-	define( 'KLEN_PATH', __DIR__ );
+	// Paths of plugin
+	define( 'KLEN_PATH_DIR', plugin_dir_path( __FILE__ ) );
+	define( 'KLEN_PATH_URL', plugin_dir_url( __FILE__ ) );
+
+	// Ecomail API
+	//define( 'KLEN_API_KEY', ECOMAIL_API_KEY_XXXYYYZZZ );
+	//define( 'KLEN_API_LIST_ID', ECOMAIL_API_LIST_ID_XX );
 
 	/* ------------------------------ FUNCTIONS ------------------------------ */
 
-	require_once KLEN_PATH . '/functions/shortcodes.php';
+	require_once KLEN_PATH_DIR . '/functions/shortcodes.php';
 
 	/* ------------------------------ STYLES ------------------------------ */
 
@@ -34,13 +39,13 @@
 		//-------------------------------------------------------------------
 
 		// Styles for Ecomail form
-		wp_register_style( 'klen_form', KLEN_PATH . '/assets/css/form.css', null, null, 'all' );
+		wp_register_style( 'klen_form', KLEN_PATH_URL . '/assets/css/klen-form.css', null, null, 'all' );
 
 		//-------------------------------------------------------------------
 		// JS
 		//-------------------------------------------------------------------
 
 		// Scripts for Ecomail form
-		wp_register_script( 'klen_form', KLEN_PATH . '/assets/js/form.js', null, null, true );
+		wp_register_script( 'klen_form', KLEN_PATH_URL . '/assets/js/klen-form.js', null, null, true );
 
 	}
