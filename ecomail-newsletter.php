@@ -15,3 +15,5 @@
 	define( 'KLEN_PATH', __DIR__ );
 
 	require_once KLEN_PATH . '/functions/shortcodes.php';
+
+	

@@ -20,9 +20,9 @@
 					<input type="hidden" name="action" value="add_subscriber_email">
 
 						<div class="klen__form-field klen__form-field_email">
-							<label for="klen_amil">Zadejte váš e-mail</label>
+							<label for="klen_email">Zadejte váš e-mail</label>
 
-							<input id="klen_amil" type="email" name="email" placeholder="jan@novak.cz" required>
+							<input id="klen_email" type="email" name="email" placeholder="jan@novak.cz" required>
 						</div>
 						
 						<div class="klen__form-field klen__form-field_submit">
