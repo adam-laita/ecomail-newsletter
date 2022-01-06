@@ -12,8 +12,35 @@
 		Domain Path: /languages
 	*/
 
+	/* ------------------------------ CONSTANTS ------------------------------ */
+
+	// Paths
 	define( 'KLEN_PATH', __DIR__ );
+
+	/* ------------------------------ FUNCTIONS ------------------------------ */
 
 	require_once KLEN_PATH . '/functions/shortcodes.php';
 
-	
+	/* ------------------------------ STYLES ------------------------------ */
+
+	// Sets styles and scripts for Front-End
+	add_action( 'wp_enqueue_scripts', 'klen_frontend_assets' );
+
+	function klen_frontend_assets()
+	{
+
+		//-------------------------------------------------------------------
+		// CSS
+		//-------------------------------------------------------------------
+
+		// Styles for Ecomail form
+		wp_register_style( 'klen_form', KLEN_PATH . '/assets/css/form.css', null, null, 'all' );
+
+		//-------------------------------------------------------------------
+		// JS
+		//-------------------------------------------------------------------
+
+		// Scripts for Ecomail form
+		wp_register_script( 'klen_form', KLEN_PATH . '/assets/js/form.js', null, null, true );
+
+	}

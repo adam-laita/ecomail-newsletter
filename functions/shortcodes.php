@@ -6,7 +6,8 @@
 	add_shortcode( 'ecomail-newsletter', 'klen_form' );
 
 	function klen_form() {
-		//wp_enqueue_style( 'klen_form' );
+		wp_enqueue_style( 'klen_form' );
+		wp_enqueue_script( 'klen_form' );
 
 		ob_start();
 
