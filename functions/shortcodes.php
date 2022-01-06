@@ -12,7 +12,7 @@
 		ob_start();
 
 		?>
-			<div class="klen klen_left klen_transparent <?php // klen_left klen_center klen_right klen_transparent klen_background ?>">
+			<div class="klen klen_left klen_background <?php // klen_left klen_center klen_right klen_transparent klen_background ?>">
 				<div class="klen__wrapper">
 					<div class="klen__text">
 						<h3>Newsletter</h3>
