@@ -9,7 +9,8 @@
             __('Ecomail newsletter','klen_admin'),
             'manage_options',
             'klen_admin_page',
-            'klen_admin_page_html'
+            'klen_admin_page_html',
+            'dashicons-email'
         );
     }
 
