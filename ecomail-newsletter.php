@@ -64,6 +64,7 @@
 
 		// Styles for Ecomail form
 		wp_register_style( 'klen_form', KLEN_PATH_URL . '/assets/css/klen-form.css', null, null, 'all' );
+		// Styles for admin
 		wp_register_style( 'klen_admin', KLEN_PATH_URL . '/assets/css/klen-admin.css', null, null, 'all' );
 
 		//-------------------------------------------------------------------
