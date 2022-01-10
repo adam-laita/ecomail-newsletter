@@ -51,3 +51,26 @@
 		wp_register_script( 'klen_form', KLEN_PATH_URL . '/assets/js/klen-form.js', null, null, true );
 
 	}
+
+	//Sets styles and scripts for Back-End
+	add_action( 'admin_enqueue_scripts', 'klen_backend_assets' );
+
+	function klen_backend_assets()
+	{
+
+		//-------------------------------------------------------------------
+		// CSS
+		//-------------------------------------------------------------------
+
+		// Styles for Ecomail form
+		wp_register_style( 'klen_form', KLEN_PATH_URL . '/assets/css/klen-form.css', null, null, 'all' );
+		wp_register_style( 'klen_admin', KLEN_PATH_URL . '/assets/css/klen-admin.css', null, null, 'all' );
+
+		//-------------------------------------------------------------------
+		// JS
+		//-------------------------------------------------------------------
+
+		// Scripts for Ecomail form
+		wp_register_script( 'klen_form', KLEN_PATH_URL . '/assets/js/klen-form.js', null, null, true );
+
+	}
