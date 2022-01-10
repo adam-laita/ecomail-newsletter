@@ -4,7 +4,9 @@
 
 	// Add admin page
     function klen_admin_page() {
-        add_menu_page(
+
+        add_submenu_page(
+            'options-general.php',
             __('Ecomail newsletter','klen_admin'),
             __('Ecomail newsletter','klen_admin'),
             'manage_options',
