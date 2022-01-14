@@ -38,11 +38,9 @@
 .klen__wrapper
 {
 	position: relative;
-
 	display: inline-block;
-
 	width: 100%;
-	max-width: 360px;
+	/* max-width: 360px; */
 }
 
 .klen_transparent .klen__wrapper
