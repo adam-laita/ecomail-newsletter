@@ -17,6 +17,7 @@
 	// Paths of plugin
 	define( 'KLEN_PATH_DIR', plugin_dir_path( __FILE__ ) );
 	define( 'KLEN_PATH_URL', plugin_dir_url( __FILE__ ) );
+	define( 'KLEN_BASENAME', plugin_basename( __FILE__ ) );
 
 	// Ecomail API
 	//define( 'KLEN_API_KEY', ECOMAIL_API_KEY_XXXYYYZZZ );
