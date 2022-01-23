@@ -9,12 +9,11 @@
 		License:     GPL3
 		License URI: https://www.gnu.org/licenses/gpl-3.0.html
 		Text Domain: klen
-		Domain Path: /languages
 	*/
 
 	/* ------------------------------ CONSTANTS ------------------------------ */
 
-	// Paths of plugin
+	// Path, directory & basename
 	define( 'KLEN_PATH_DIR', plugin_dir_path( __FILE__ ) );
 	define( 'KLEN_PATH_URL', plugin_dir_url( __FILE__ ) );
 	define( 'KLEN_BASENAME', plugin_basename( __FILE__ ) );
