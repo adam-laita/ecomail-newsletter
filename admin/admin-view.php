@@ -18,14 +18,24 @@
 	<div class="klen-admin__main">
 		<h1><?php echo esc_html( get_admin_page_title() ); ?></h1>
 
-		<?php settings_errors(); ?>
+		<?php 
+         if ( isset( $_GET['settings-updated'] ) ) {
+            // add settings saved message with the class of "updated"
+            add_settings_error( 'klen_messages', 'klen_message', __( 'Settings Saved', 'klen' ), 'updated' );
+        }
+     
+        // show error/update messages
+        //settings_errors( 'klen_messages' ) ?>
 
 		<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aliquam erat volutpat. Maecenas fermentum, sem in pharetra pellentesque, velit turpis volutpat ante, in pharetra metus odio a lectus.</p>
 
+        <?php /* 
+        Check DB for API key and disable content and design
+        */?>
 		<nav class="nav-tab-wrapper" id="tabs">
 			<a href="?page=klen_admin_page" class="nav-tab <?php if($tab===null):?>nav-tab-active<?php endif; ?>"><?=__('General settings','klen_admin');?></a>
 
-			<a href="?page=klen_admin_page&tab=content" class="nav-tab <?php if($tab==='content'):?>nav-tab-active<?php endif; ?>"><?=__('Content','klen_admin');?></a>
+			<a href="?page=klen_admin_page&tab=content" class="nav-tab <?php if($tab==='content'):?>nav-tab-active<?php endif; ?>" ><?=__('Content','klen_admin');?></a>
 
 			<a href="?page=klen_admin_page&tab=design" class="nav-tab <?php if($tab==='design'):?>nav-tab-active<?php endif; ?>"><?=__('Design','klen_admin');?></a>
 		</nav>
@@ -35,7 +45,14 @@
 			//Content tab
 			case 'content':?>
 				<h2><?=__('Content','klen_admin');?></h2>
-				
+				<p>Nadpis</p>
+                <p>Popisek</p>
+                <p>Label</p>
+                <p>Placeholder</p>
+                <p>Button</p>
+                <p>Hláška success</p>
+                <p>Hláška warning</p>
+                <p>Již jste zapsáni message</p>
 			<?php 
 			break;
 			case 'design':?>
@@ -58,52 +75,28 @@
 						</tr>
 					</tbody>
 				</table>
+                <p></p>
 			<?php 
 			break;
 			default:?>
-				<h2><?=__('General settings','klen_admin');?></h2>
-
-				<table class="form-table">
-					<tbody>
-						<tr>
-							<th scope="row"><label for="klen_api_key"><?=__('API key','klen_admin');?></label></th>
-
-							<td><input name="klen_api_key" type="text" id="klen_api_key" placeholder="XXX" class="regular-text"></td>
-						</tr>
-
-						<tr>
-							<th scope="row"><label for="klen_list_ID"><?=__('Your list ID','klen_admin');?></label></th>
-							<td><input name="klen_list_ID" type="number" id="klen_list_ID" placeholder="1" class="regular-number"></td>
-						</tr>
-
-						<tr>
-							<th scope="row">
-								<?=__('Testing mode','klen_admin');?>
-							</th>
-
-							<td>
-								<fieldset>
-									<legend class="screen-reader-text">
-										<span>checkbox</span>
-									</legend>
-
-									<label for="checkbox_id">
-										<input name="checkbox_id" type="checkbox" id="checkbox_id" value="1">
-										<?=__('Active','klen_admin');?>
-									</label>
-								</fieldset>
-							</td>
-						</tr>
-					</tbody>
-				</table>
+                <form action="options.php" method="post">
+                    <?php
+                    // output security fields for the registered setting "klen"
+                    settings_fields( 'klen_general' );
+                    // output setting sections and their fields
+                    // (sections are registered for "klen", each field is registered to a specific section)
+                    do_settings_sections( 'klen_general' );
+                    // output save settings button
+                    submit_button(__('Save settings','klen_admin'));
+                    ?>
+                </form>
 			<?php
 			break;
 			endswitch; ?>
 		</div>
 
-		<hr>
-
 		<div class="klen-admin__shortcode">
+            <h3><?=__('Preview','klen_admin');?></h3>
 			<?=do_shortcode('[ecomail-newsletter]');?>
 		</div>
 	</div>

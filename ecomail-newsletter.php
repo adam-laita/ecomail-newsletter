@@ -25,7 +25,7 @@
 	/* ------------------------------ FUNCTIONS ------------------------------ */
 
 	require_once KLEN_PATH_DIR . '/functions/shortcodes.php';
-	require_once KLEN_PATH_DIR . '/functions/admin.php';
+	require_once KLEN_PATH_DIR . '/admin/functions.php';
 
 
 	/* ------------------------------ STYLES ------------------------------ */

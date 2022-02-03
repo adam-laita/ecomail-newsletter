@@ -15,6 +15,12 @@
 	padding-top: 43px;
 }
 
+.klen-admin__shortcode {
+	margin-top: 32px;
+	padding-top: 16px;
+	border-top: 1px solid #c3c4c7;
+}
+
 @media screen and (max-width: 980px)
 {
 	.klen-admin

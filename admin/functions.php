@@ -1,7 +1,6 @@
 <?php 
 
 	/* ------------------------------ ADMIN PAGE ------------------------------ */
-
 	/* --- PLUGIN LIST --- */
 
 	// adds links to plugin in plugin list page
@@ -19,7 +18,7 @@
 
 	/* --- PLUGIN PAGE --- */
 
-	// Register our klen_options_page to the admin_menu action hook
+	// Register our klen_api_key_page to the admin_menu action hook
 	add_action( 'admin_menu', 'klen_admin_page' );
 
 	function klen_admin_page() {
@@ -36,5 +35,12 @@
 
 	// Callback for output
 	function klen_admin_page_callback() {
-		require_once KLEN_PATH_DIR . '/functions/admin-view.php';
+		require_once KLEN_PATH_DIR . '/admin/admin-view.php';
 	}
+
+	//Include settings files
+	require_once KLEN_PATH_DIR . '/admin/settings-general.php';
+	require_once KLEN_PATH_DIR . '/admin/settings-content.php';
+	require_once KLEN_PATH_DIR . '/admin/settings-design.php';
+
+	
