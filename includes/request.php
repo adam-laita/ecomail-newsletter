@@ -22,6 +22,12 @@ class KLEN_Ecomail_Requst
     public function actions()
     {
         add_action('rest_api_init', array($this, 'register_endpoint'));
+        add_action('klen_update_subscribers_count', array($this, 'update_subscribers_count'));
+        add_action('wp', function () {
+            if (!wp_next_scheduled('klen_update_subscribers_count')) {
+                wp_schedule_event(time(), 'daily', 'klen_update_subscribers_count');
+            }
+        });
     }
 
     /**
@@ -38,7 +44,7 @@ class KLEN_Ecomail_Requst
 
         register_rest_route('klen-ecomail/v1', '/subscribers-count', array(
             'methods' => 'GET',
-            'callback' => array($this, 'get_subscribers_count')
+            'callback' => array($this, 'update_subscribers_count')
         ));
     }
 
