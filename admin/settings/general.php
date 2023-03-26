@@ -55,6 +55,14 @@ class KLEN_Ecomail_General
             'klen_general_settings'
         );
 
+        add_settings_field(
+            'klen_subscriber_count_field',
+            __('Subsriber count', 'klen_admin'),
+            array($this, 'klen_subscriber_count_field'),
+            'klen_general',
+            'klen_general_settings'
+        );
+
     }
 
     /**
@@ -87,6 +95,17 @@ class KLEN_Ecomail_General
     {
         $list_id = get_option('klen_list_id');
         echo '<input type="text" name="klen_list_id" value="' . esc_attr__($list_id, 'klen_admin') . '"/>';
+    }
+
+    /**
+     * List ID field callback
+     *
+     * @return void
+     */
+    public function klen_subscriber_count_field()
+    {
+        $subscriber_count = get_option('klen_subscribers_count');
+        echo '<input type="number" name="klen_subscribers_count" value="' . esc_attr__($subscriber_count, 'klen_admin') . '"/>';
     }
 
 }

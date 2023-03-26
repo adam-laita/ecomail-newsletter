@@ -35,6 +35,11 @@ class KLEN_Ecomail_Requst
             'methods' => 'POST',
             'callback' => array($this, 'subscribe_user')
         ));
+
+        register_rest_route('klen-ecomail/v1', '/subscribers-count', array(
+            'methods' => 'GET',
+            'callback' => array($this, 'get_subscribers_count')
+        ));
     }
 
     /**
@@ -83,6 +88,38 @@ class KLEN_Ecomail_Requst
 
         // Return the response from the API
         return $response;
+    }
+
+    public function update_subscribers_count()
+    {
+        $api_key = get_option('klen_api_key');
+        $list_id = get_option('klen_list_id');
+
+        if (!$api_key || !$list_id) {
+            return;
+        }
+
+        $url = 'https://api2.ecomailapp.cz/lists/' . $list_id . '/subscribers';
+
+        $args = array(
+            'headers' => array(
+                'Content-Type' => 'application/json',
+                'key' => $api_key
+            ),
+            'timeout' => 10
+        );
+
+        $response = wp_remote_get($url, $args);
+
+        if (is_wp_error($response)) {
+            return;
+        }
+
+        $result = json_decode(wp_remote_retrieve_body($response), true);
+
+        if (!empty($result['total'])) {
+            update_option('klen_subscribers_count', $result['total']);
+        }
     }
 
 }
