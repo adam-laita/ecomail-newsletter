@@ -138,6 +138,7 @@ class KLEN_Ecomail
         // Register a new settings general tab
         register_setting('klen_general', 'klen_api_key');
         register_setting('klen_general', 'klen_list_id');
+        register_setting('klen_general', 'klen_subscribers_count');
 
         // Register a new settings content tab
         register_setting('klen_content', 'klen_content_title');
