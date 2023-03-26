@@ -90,11 +90,16 @@ class KLEN_Ecomail
     {
         $plugin_meta = get_plugin_data(__FILE__);
 
+        $style = get_option('klen_design_style');
+
+        if (empty($style) || $style == 'default') {
+            // Styles for Ecomail form
+            wp_enqueue_style('klen_form', KLEN_PATH_URL . '/assets/css/klen-form.css', null, $plugin_meta['Version'], 'all');
+        }
+
         // Styles for admin
         wp_enqueue_style('klen_admin', KLEN_PATH_URL . '/assets/css/klen-admin.css', null, $plugin_meta['Version'], 'all');
 
-        // Styles for Ecomail form
-        wp_enqueue_style('klen_form', KLEN_PATH_URL . '/assets/css/klen-form.css', null, $plugin_meta['Version'], 'all');
 
         // Scripts for Ecomail form
         wp_enqueue_script('klen_form', KLEN_PATH_URL . '/assets/js/klen-form.js', null, $plugin_meta['Version'], true);
