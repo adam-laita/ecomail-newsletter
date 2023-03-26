@@ -54,7 +54,7 @@ class KLEN_Ecomail_Requst
 
         // Get the email and name parameters from the request
         $params = $request->get_params();
-        $email = $params['email'];
+        $email = sanitize_email($params['email']);
 
         // Make the API request to subscribe the user
         $url = 'https://api2.ecomailapp.cz/lists/' . $list_id . '/subscribe';
