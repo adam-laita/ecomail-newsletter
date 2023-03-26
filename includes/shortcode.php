@@ -35,7 +35,7 @@ class KLEN_Ecomail_Shortcode
 
         $style = get_option('klen_design_style');
 
-        if (!empty($style) && $style == 'default') {
+        if (empty($style) || $style == 'default') {
             //Enqueue styles
             wp_enqueue_style('klen_form');
         }
