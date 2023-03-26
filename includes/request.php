@@ -90,6 +90,11 @@ class KLEN_Ecomail_Requst
         return $response;
     }
 
+    /**
+     * Get subscriber count for that list_id
+     *
+     * @return void
+     */
     public function update_subscribers_count()
     {
         $api_key = get_option('klen_api_key');
