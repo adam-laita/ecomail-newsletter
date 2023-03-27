@@ -33,8 +33,14 @@ class KLEN_Ecomail_Shortcode
             return __('Ecomail Newsletter plugin is not configured correctly. Please check the API key and list ID settings.', 'klen_admin');
         }
 
-        //Enque styles for frontend
-        wp_enqueue_style('klen_form');
+        $style = get_option('klen_design_style');
+
+        if (empty($style) || $style == 'default') {
+            //Enqueue styles
+            wp_enqueue_style('klen_form');
+        }
+
+        //Enqueue scripts
         wp_enqueue_script('klen_form');
 
         // Get the content from the options.

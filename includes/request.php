@@ -22,6 +22,12 @@ class KLEN_Ecomail_Requst
     public function actions()
     {
         add_action('rest_api_init', array($this, 'register_endpoint'));
+        add_action('klen_update_subscribers_count', array($this, 'update_subscribers_count'));
+        add_action('wp', function () {
+            if (!wp_next_scheduled('klen_update_subscribers_count')) {
+                wp_schedule_event(time(), 'daily', 'klen_update_subscribers_count');
+            }
+        });
     }
 
     /**
@@ -34,6 +40,11 @@ class KLEN_Ecomail_Requst
         register_rest_route('klen-ecomail/v1', '/subscribe', array(
             'methods' => 'POST',
             'callback' => array($this, 'subscribe_user')
+        ));
+
+        register_rest_route('klen-ecomail/v1', '/subscribers-count', array(
+            'methods' => 'GET',
+            'callback' => array($this, 'update_subscribers_count')
         ));
     }
 
@@ -54,7 +65,7 @@ class KLEN_Ecomail_Requst
 
         // Get the email and name parameters from the request
         $params = $request->get_params();
-        $email = $params['email'];
+        $email = sanitize_email($params['email']);
 
         // Make the API request to subscribe the user
         $url = 'https://api2.ecomailapp.cz/lists/' . $list_id . '/subscribe';
@@ -83,6 +94,43 @@ class KLEN_Ecomail_Requst
 
         // Return the response from the API
         return $response;
+    }
+
+    /**
+     * Get subscriber count for that list_id
+     *
+     * @return void
+     */
+    public function update_subscribers_count()
+    {
+        $api_key = get_option('klen_api_key');
+        $list_id = get_option('klen_list_id');
+
+        if (!$api_key || !$list_id) {
+            return;
+        }
+
+        $url = 'https://api2.ecomailapp.cz/lists/' . $list_id . '/subscribers';
+
+        $args = array(
+            'headers' => array(
+                'Content-Type' => 'application/json',
+                'key' => $api_key
+            ),
+            'timeout' => 10
+        );
+
+        $response = wp_remote_get($url, $args);
+
+        if (is_wp_error($response)) {
+            return;
+        }
+
+        $result = json_decode(wp_remote_retrieve_body($response), true);
+
+        if (!empty($result['total'])) {
+            update_option('klen_subscribers_count', $result['total']);
+        }
     }
 
 }
