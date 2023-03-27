@@ -2,29 +2,83 @@
 /* ADMIN
 /*----------------------------------------------------------------- */
 
+/* GENERAL
+----------------------------------------- */
 .klen-admin
 {
-    display: grid;
+	display: grid;
 
-    gap: 30px;
-    grid-template-columns: 3fr 1fr;
+	gap: 30px;
+	grid-template-columns: 3fr 1fr;
 }
 
-.klen-admin__aside
+.klen-input
 {
-    padding-top: 43px;
+	width: 260px;
 }
 
-.klen-admin__shortcode {
-    margin-top: 32px;
-    padding-top: 16px;
-    border-top: 1px solid #c3c4c7;
+.klen-input[disabled]
+{
+	cursor: not-allowed;
+}
+
+.klen-label_required
+{
+	color: rgb(197, 48, 48);
+}
+
+.klen-admin__shortcode
+{
+	margin-top: 32px;
+	padding-top: 16px;
+
+	border-top: 1px solid #c3c4c7;
 }
 
 @media screen and (max-width: 980px)
 {
-    .klen-admin
-    {
-        grid-template-columns: 1fr;
-    }
+	.klen-admin
+	{
+		grid-template-columns: 1fr;
+	}
+}
+
+/* ASIDE
+----------------------------------------- */
+.klen-admin__aside
+{
+	padding: 62px 30px 0 0;
+}
+
+.klen-admin__aside-wrapper
+{
+	font-size: 13px;
+	line-height: 1.4;
+
+	position: relative;
+
+	padding: 15px;
+
+	border: 1px solid #c3c4c7;
+	background: #fff;
+	box-shadow: 0 1px 1px rgba(0,0,0,0.04);
+}
+
+/* MAIN
+----------------------------------------- */
+.klen-input_main
+{
+	text-align: right;
+}
+
+/* LABELS
+----------------------------------------- */
+.klen-input_labels
+{
+	width: 360px;
+}
+
+.klen-input_labels-desc
+{
+	height: 160px;
 }

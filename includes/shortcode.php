@@ -6,92 +6,108 @@
 class KLEN_Ecomail_Shortcode
 {
 
-    /**
-     * Constructor.
-     */
-    public function __construct()
-    {
-        add_shortcode('ecomail-newsletter', array($this, 'shortcode'));
-    }
+	/**
+	 * Constructor.
+	 */
+	public function __construct()
+	{
+		add_shortcode('ecomail-newsletter', array($this, 'shortcode'));
+	}
 
-    /**
-     * Callback function for the ecomail-newsletter shortcode.
-     *
-     * @param array $atts Shortcode attributes.
-     *
-     * @return string Shortcode output.
-     */
-    public function shortcode()
-    {
+	/**
+	 * Callback function for the ecomail-newsletter shortcode.
+	 *
+	 * @param array $atts Shortcode attributes.
+	 *
+	 * @return string Shortcode output.
+	 */
+	public function shortcode()
+	{
 
-        // Get the API key and list ID from the options.
-        $api_key = get_option('klen_api_key');
-        $list_id = get_option('klen_list_id');
+		// Get the API key and list ID from the options.
+		$api_key = get_option('klen_api_key');
+		$list_id = get_option('klen_list_id');
 
-        // Check if the API key and list ID are set.
-        if (empty($api_key) || empty($list_id)) {
-            return __('Ecomail Newsletter plugin is not configured correctly. Please check the API key and list ID settings.', 'klen_admin');
-        }
+		// Check if the API key and list ID are set.
+		if ( empty( $api_key ) || empty( $list_id ) ) {
+			$api_message = '<span class="klen__alert klen__alert_warning open">' . __( 'Ecomail Newsletter plugin is not configured correctly. Please check the API key and list ID settings.', 'klen' ) . '</span>';
+			
+			return $api_message;
+		}
 
-        $style = get_option('klen_design_style');
+		$style = get_option('klen_appearance_style');
 
-        if (empty($style) || $style == 'default') {
-            //Enqueue styles
-            wp_enqueue_style('klen_form');
-        }
+		if (empty($style) || $style == 'default') {
+			//Enqueue styles
+			wp_enqueue_style('klen_form');
+		}
 
-        //Enqueue scripts
-        wp_enqueue_script('klen_form');
+		//Enqueue scripts
+		wp_enqueue_script('klen_form');
 
-        // Get the content from the options.
-        $title = get_option('klen_content_title', __('Subscribe to our newsletter', 'klen_admin'));
-        $description = get_option('klen_content_desc', '');
-        $label = get_option('klen_content_label', __('Your email address', 'klen_admin'));
-        $placeholder = get_option('klen_content_placeholder', '');
-        $button_text = get_option('klen_content_button', __('Subscribe', 'klen_admin'));
-        $success_message = get_option('klen_content_success', __('Thank you for subscribing!', 'klen_admin'));
-        $error_message = get_option('klen_content_error', __('There was an error processing your request.', 'klen_admin'));
-        $warning_message = get_option('klen_content_warning', 'Something happened, try again.');
+		// Get the labels from the options.
+		$title = get_option('klen_labels_title', __('Newsletter', 'klen'));
+		$description = get_option('klen_labels_desc', __('Sign up for our newsletter to stay connected with us.', 'klen'));
+		$label = get_option('klen_labels_label', __('Your email address', 'klen'));
+		$placeholder = get_option('klen_labels_placeholder', __('john.doe@gmail.com', 'klen'));
+		$button_text = get_option('klen_labels_button', __('Subscribe', 'klen'));
+		$success_message = get_option('klen_labels_success', __('Thank you for subscribing!', 'klen'));
+		$error_message = get_option('klen_labels_error', __('There was an error processing your request.', 'klen'));
+		$warning_message = get_option('klen_labels_warning', __('Something went wrong, try again.', 'klen'));
 
-        ob_start(); ?>
-        <div class="klen klen_left klen_background">
-            <div class="klen__wrapper">
-                <div class="klen__text">
-                    <h3><?= $title; ?></h3>
-                    <?php if (!empty($description)) {
-                        echo ' <p>' . $description . '</p>';
-                    } ?>
-                </div>
-                <form class="klen__form" id="klen-ecomail-form"
-                      method="POST">
-                    <div class="klen__form-field klen__form-field_email klen__form-field_required">
-                        <label for="klen_email"><?= $label; ?></label>
-                        <input id="klen_email" type="email" name="email" placeholder="<?= $placeholder; ?>" required>
-                    </div>
+		ob_start(); ?>
+		<div class="klen klen_align-left">
+			<div class="klen__wrapper">
+				<?php
+					if ( !empty( $title ) || !empty( $description ) ) {
+						echo '<div class="klen__text">';
 
-                    <div class="klen__form-field klen__form-field_submit">
-                        <input type="submit" value="<?= $button_text; ?>">
-                    </div>
-                </form>
+						if ( !empty( $title ) ) {
+							echo '<span class="klen__text-title">' . esc_html( $title ) . '</span>';
+						}
 
-                <div class="klen__alerts">
-                    <div class="klen__alert klen__alert_success" id="klen_success">
-                        <p><?= $success_message; ?></p>
-                    </div>
+						if ( !empty( $description ) ) {
+							echo ' <p>' . esc_html( $description ) . '</p>';
+						}
 
-                    <div class="klen__alert klen__alert_error" id="klen_error">
-                        <p><?= $error_message; ?></p>
-                    </div>
+						echo '</div>';
+					}
+				?>
 
-                    <div class="klen__alert klen__alert_warning" id="klen_warning">
-                        <p><?= $warning_message; ?></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <?php return ob_get_clean();
+				<form class="klen__form" id="klen-ecomail-form" method="POST">
+					<div class="klen__form-field klen__form-field_email">
+						<?php
+							if ( !empty( $label ) ) {
+								echo '<label for="klen_email">' . esc_html( $label ) . '</label>';
+							}
+						?>
 
-    }
+						<input id="klen_email" type="email" name="email" placeholder="<?php if ( !empty( $placeholder ) ) { echo esc_attr( $placeholder ); } ?>" required>
+					</div>
+
+					<div class="klen__form-field klen__form-field_submit">
+						<input type="submit" value="<?= esc_attr( $button_text ); ?>">
+					</div>
+				</form>
+
+				<div class="klen__alerts">
+					<div class="klen__alert klen__alert_success" id="klen_success">
+						<p><?= esc_html( $success_message ); ?></p>
+					</div>
+
+					<div class="klen__alert klen__alert_error" id="klen_error">
+						<p><?= esc_html( $error_message ); ?></p>
+					</div>
+
+					<div class="klen__alert klen__alert_warning" id="klen_warning">
+						<p><?= esc_html( $warning_message ); ?></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<?php return ob_get_clean();
+
+	}
 }
 
 new KLEN_Ecomail_Shortcode();
