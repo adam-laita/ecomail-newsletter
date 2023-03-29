@@ -12,6 +12,7 @@ class KLEN_Ecomail_Shortcode
 	public function __construct()
 	{
 		add_shortcode('ecomail-newsletter', array($this, 'newsletterShortcode'));
+        add_shortcode('ecomail-subscribers', array($this, 'subscriberShortcode'));
         add_filter( 'klen_filter', array($this, 'klen_filter') );
     }
 
@@ -108,6 +109,28 @@ class KLEN_Ecomail_Shortcode
 		</div>
 		<?php return ob_get_clean();
 	}
+
+    /**
+     * Callback function for the subscriber shortcode.
+     *
+     * @return string Shortcode output.
+     */
+    public function subscriberShortcode()
+    {
+
+        // Get the API key and list ID from the options.
+        $api_key = get_option('klen_api_key');
+        $list_id = get_option('klen_list_id');
+
+        // Check if the API key and list ID are set.
+        if ( empty( $api_key ) || empty( $list_id ) ) {
+            $api_message = '<span class="klen__alert klen__alert_warning open">' . __( 'Ecomail Newsletter plugin is not configured correctly. Please check the API key and list ID settings.', 'klen' ) . '</span>';
+
+            return $api_message;
+        }
+
+        return get_option('klen_subscribers_count') ? get_option('klen_subscribers_count') : 0;
+    }
 
     /**
      * Filter content for custom variables
