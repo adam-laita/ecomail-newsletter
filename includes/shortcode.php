@@ -129,7 +129,9 @@ class KLEN_Ecomail_Shortcode
             return $api_message;
         }
 
-        return get_option('klen_subscribers_count') ? get_option('klen_subscribers_count') : 0;
+        $subscriberCount =  get_option('klen_subscribers_count') ? get_option('klen_subscribers_count') : 0;
+
+        return '<span class="klen-subscribers">'.$subscriberCount.'</span>';
     }
 
     /**
