@@ -15,8 +15,6 @@ composer.lock
 
 # Other files
 *.log
-*.pot
-*.potx
 *.swp
 *.tmp
 *.zip
