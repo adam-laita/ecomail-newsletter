@@ -11,8 +11,9 @@ class KLEN_Ecomail_Shortcode
 	 */
 	public function __construct()
 	{
-		add_shortcode('ecomail-newsletter', array($this, 'shortcode'));
-	}
+		add_shortcode('ecomail-newsletter', array($this, 'newsletterShortcode'));
+        add_filter( 'klen_filter', array($this, 'klen_filter') );
+    }
 
 	/**
 	 * Callback function for the ecomail-newsletter shortcode.
@@ -21,7 +22,7 @@ class KLEN_Ecomail_Shortcode
 	 *
 	 * @return string Shortcode output.
 	 */
-	public function shortcode()
+	public function newsletterShortcode()
 	{
 
 		// Get the API key and list ID from the options.
@@ -63,11 +64,11 @@ class KLEN_Ecomail_Shortcode
 						echo '<div class="klen__text">';
 
 						if ( !empty( $title ) ) {
-							echo '<span class="klen__text-title">' . esc_html( $title ) . '</span>';
+							echo '<span class="klen__text-title">' . esc_html( apply_filters( 'klen_filter',$title ) ) . '</span>';
 						}
 
 						if ( !empty( $description ) ) {
-							echo ' <p>' . esc_html( $description ) . '</p>';
+							echo ' <p>' . esc_html( apply_filters( 'klen_filter',$description )) . '</p>';
 						}
 
 						echo '</div>';
@@ -106,8 +107,21 @@ class KLEN_Ecomail_Shortcode
 			</div>
 		</div>
 		<?php return ob_get_clean();
-
 	}
+
+    /**
+     * Filter content for custom variables
+     *
+     * @param $content
+     * @return array|string|string[]
+     */
+    public function klen_filter($content) {
+        $replacements = array(
+            '{{count}}' => get_option('klen_subscribers_count') ? get_option('klen_subscribers_count') : 0
+        );
+        $content = str_replace( array_keys( $replacements ), array_values( $replacements ), $content );
+        return $content;
+    }
 }
 
 new KLEN_Ecomail_Shortcode();
