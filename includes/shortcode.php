@@ -23,8 +23,15 @@ class KLEN_Ecomail_Shortcode
 	 *
 	 * @return string Shortcode output.
 	 */
-	public function newsletterShortcode()
+	public function newsletterShortcode($atts)
 	{
+        // Default attributes for the shortcode.
+        $default_atts = array(
+            'align' => 'left'//center;right;
+        );
+
+        // Merge the passed attributes with the default attributes.
+        $atts = shortcode_atts( $default_atts, $atts );
 
 		// Get the API key and list ID from the options.
 		$api_key = get_option('klen_api_key');
@@ -58,7 +65,7 @@ class KLEN_Ecomail_Shortcode
 		$warning_message = get_option('klen_labels_warning', __('Something went wrong, try again.', 'klen'));
 
 		ob_start(); ?>
-		<div class="klen klen_align-left">
+		<div class="klen klen_align-<?=$atts['align'];?>">
 			<div class="klen__wrapper">
 				<?php
 					if ( !empty( $title ) || !empty( $description ) ) {
