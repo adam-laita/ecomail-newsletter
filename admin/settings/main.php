@@ -87,6 +87,8 @@ class KLEN_Ecomail_Main
 		echo '<input class="klen-input klen-input_main klen-input_main-api-key" type="text" name="klen_api_key" value="' . esc_attr__( $api_key, 'klen' ) . '" placeholder="' . __( 'ecomail-api-key', 'klen' ) . '" required>';
 
 		echo '<span class="icon icon_success"></span>';
+
+		echo '<br><span class="klen__alert klen__alert_error" style="display: inline-block;">' . __( 'This API key is not valid, please check it again.', 'klen' ) . '</span>';
 	}
 
 	/**
@@ -101,6 +103,8 @@ class KLEN_Ecomail_Main
 		echo '<input class="klen-input klen-input_main klen-input_main-list-id" type="number" name="klen_list_id" value="' . esc_attr__( $list_id, 'klen' ) . '" required>';
 
 		echo '<span class="icon icon_success"></span>';
+
+		echo '<br><span class="klen__alert klen__alert_error" style="display: inline-block;">' . __( 'This List ID is not valid, please check it again.', 'klen' ) . '</span>';
 	}
 
 	/**

@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Ecomail Newsletter\n"
-"POT-Creation-Date: 2023-03-28 01:45+0200\n"
+"POT-Creation-Date: 2023-03-29 23:43+0200\n"
 "PO-Revision-Date: 2023-03-27 20:14+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -78,38 +78,40 @@ msgid "Warning Message"
 msgstr ""
 
 #: admin/settings/labels.php:115
-msgid "You can change the form labels in this setting."
+msgid ""
+"You can use <strong>{{count}}</strong> in title and description to view "
+"number of subscribers."
 msgstr ""
 
-#: admin/settings/labels.php:125 includes/shortcode.php:49
+#: admin/settings/labels.php:125 includes/shortcode.php:58
 msgid "Newsletter"
 msgstr ""
 
-#: admin/settings/labels.php:137 includes/shortcode.php:50
+#: admin/settings/labels.php:137 includes/shortcode.php:59
 msgid "Sign up for our newsletter to stay connected with us."
 msgstr ""
 
-#: admin/settings/labels.php:149 includes/shortcode.php:51
+#: admin/settings/labels.php:149 includes/shortcode.php:60
 msgid "Your email address"
 msgstr ""
 
-#: admin/settings/labels.php:161 includes/shortcode.php:52
+#: admin/settings/labels.php:161 includes/shortcode.php:61
 msgid "john.doe@gmail.com"
 msgstr ""
 
-#: admin/settings/labels.php:173 includes/shortcode.php:53
+#: admin/settings/labels.php:173 includes/shortcode.php:62
 msgid "Subscribe"
 msgstr ""
 
-#: admin/settings/labels.php:185 includes/shortcode.php:54
+#: admin/settings/labels.php:185 includes/shortcode.php:63
 msgid "Thank you for subscribing!"
 msgstr ""
 
-#: admin/settings/labels.php:197 includes/shortcode.php:55
+#: admin/settings/labels.php:197 includes/shortcode.php:64
 msgid "There was an error processing your request."
 msgstr ""
 
-#: admin/settings/labels.php:209 includes/shortcode.php:56
+#: admin/settings/labels.php:209 includes/shortcode.php:65
 msgid "Something went wrong, try again."
 msgstr ""
 
@@ -140,7 +142,15 @@ msgstr ""
 msgid "ecomail-api-key"
 msgstr ""
 
-#: admin/settings/main.php:111
+#: admin/settings/main.php:91
+msgid "This API key is not valid, please check it again."
+msgstr ""
+
+#: admin/settings/main.php:107
+msgid "This List ID is not valid, please check it again."
+msgstr ""
+
+#: admin/settings/main.php:119
 msgid "number-of-subscribers"
 msgstr ""
 
@@ -237,7 +247,7 @@ msgstr ""
 msgid "Error while subscribing to Ecomail."
 msgstr ""
 
-#: includes/shortcode.php:33
+#: includes/shortcode.php:42 includes/shortcode.php:142
 msgid ""
 "Ecomail Newsletter plugin is not configured correctly. Please check the API "
 "key and list ID settings."
