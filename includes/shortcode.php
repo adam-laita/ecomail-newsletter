@@ -115,8 +115,16 @@ class KLEN_Ecomail_Shortcode
      *
      * @return string Shortcode output.
      */
-    public function subscriberShortcode()
+    public function subscriberShortcode($atts)
     {
+
+        // Default attributes for the shortcode.
+        $default_atts = array(
+            'style' => 'default'//bold;italic;
+        );
+
+        // Merge the passed attributes with the default attributes.
+        $atts = shortcode_atts( $default_atts, $atts );
 
         // Get the API key and list ID from the options.
         $api_key = get_option('klen_api_key');
@@ -131,7 +139,7 @@ class KLEN_Ecomail_Shortcode
 
         $subscriberCount =  get_option('klen_subscribers_count') ? get_option('klen_subscribers_count') : 0;
 
-        return '<span class="klen-subscribers">'.$subscriberCount.'</span>';
+        return '<span class="klen-subscribers klen-subscribers_'.$atts['style'].'">'.$subscriberCount.'</span>';
     }
 
     /**
