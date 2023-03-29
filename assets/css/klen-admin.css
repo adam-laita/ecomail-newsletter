@@ -7,9 +7,8 @@
 .klen-admin
 {
 	display: grid;
-
 	gap: 30px;
-	grid-template-columns: 3fr 1fr;
+	grid-template-columns: auto 27%;
 }
 
 .klen-input
