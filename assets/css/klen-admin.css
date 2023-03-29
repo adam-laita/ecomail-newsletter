@@ -82,3 +82,21 @@
 {
 	height: 160px;
 }
+
+/* ICONS
+----------------------------------------- */
+.icon
+{
+	display: inline-block;
+
+	vertical-align: middle;
+}
+
+.icon_success
+{
+	width: 24px;
+	height: 24px;
+	margin: -3px 0 0 5px;
+
+	background-image: url('data:image/svg+xml,%3Csvg viewBox=\'0 0 24 24\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpath d=\'M12 1a11 11 0 1 0 11 11A11 11 0 0 0 12 1Zm5.707 8.707-7 7a1 1 0 0 1-1.414 0l-3-3a1 1 0 0 1 1.414-1.414L10 14.586l6.293-6.293a1 1 0 0 1 1.414 1.414Z\' style=\'fill:%2368d391\'/%3E%3C/svg%3E');
+}

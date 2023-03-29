@@ -85,6 +85,8 @@ class KLEN_Ecomail_Main
 		$api_key = get_option( 'klen_api_key' );
 
 		echo '<input class="klen-input klen-input_main klen-input_main-api-key" type="text" name="klen_api_key" value="' . esc_attr__( $api_key, 'klen' ) . '" placeholder="' . __( 'ecomail-api-key', 'klen' ) . '" required>';
+
+		echo '<span class="icon icon_success"></span>';
 	}
 
 	/**
@@ -97,6 +99,8 @@ class KLEN_Ecomail_Main
 		$list_id = get_option( 'klen_list_id' ) === false ? 1 : get_option( 'klen_list_id' );
 		
 		echo '<input class="klen-input klen-input_main klen-input_main-list-id" type="number" name="klen_list_id" value="' . esc_attr__( $list_id, 'klen' ) . '" required>';
+
+		echo '<span class="icon icon_success"></span>';
 	}
 
 	/**
