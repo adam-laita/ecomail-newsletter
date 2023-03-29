@@ -112,7 +112,7 @@ class KLEN_Ecomail_Labels
 	 */
 	public function klen_labels_section_callback()
 	{
-		echo __('You can change the form labels in this setting.', 'klen');
+		echo __('You can use <strong>{{count}}</strong> in title and description to view number of subscribers.', 'klen');
 	}
 
 	/**

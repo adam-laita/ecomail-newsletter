@@ -92,6 +92,9 @@ class KLEN_Ecomail_Requst
 			return new WP_Error('error', __('Error while subscribing to Ecomail.', 'klen'), array('status' => 400));
 		}
 
+        //Update subscriber count
+        $this->update_subscribers_count();
+
 		// Return the response from the API
 		return $response;
 	}

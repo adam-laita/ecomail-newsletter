@@ -11,8 +11,10 @@ class KLEN_Ecomail_Shortcode
 	 */
 	public function __construct()
 	{
-		add_shortcode('ecomail-newsletter', array($this, 'shortcode'));
-	}
+		add_shortcode('ecomail-newsletter', array($this, 'newsletterShortcode'));
+        add_shortcode('ecomail-subscribers', array($this, 'subscriberShortcode'));
+        add_filter( 'klen_filter', array($this, 'klen_filter') );
+    }
 
 	/**
 	 * Callback function for the ecomail-newsletter shortcode.
@@ -21,8 +23,15 @@ class KLEN_Ecomail_Shortcode
 	 *
 	 * @return string Shortcode output.
 	 */
-	public function shortcode()
+	public function newsletterShortcode($atts)
 	{
+        // Default attributes for the shortcode.
+        $default_atts = array(
+            'align' => 'left'//center;right;
+        );
+
+        // Merge the passed attributes with the default attributes.
+        $atts = shortcode_atts( $default_atts, $atts );
 
 		// Get the API key and list ID from the options.
 		$api_key = get_option('klen_api_key');
@@ -56,18 +65,18 @@ class KLEN_Ecomail_Shortcode
 		$warning_message = get_option('klen_labels_warning', __('Something went wrong, try again.', 'klen'));
 
 		ob_start(); ?>
-		<div class="klen klen_align-left">
+		<div class="klen klen_align-<?=$atts['align'];?>">
 			<div class="klen__wrapper">
 				<?php
 					if ( !empty( $title ) || !empty( $description ) ) {
 						echo '<div class="klen__text">';
 
 						if ( !empty( $title ) ) {
-							echo '<span class="klen__text-title">' . esc_html( $title ) . '</span>';
+							echo '<span class="klen__text-title">' . esc_html( apply_filters( 'klen_filter',$title ) ) . '</span>';
 						}
 
 						if ( !empty( $description ) ) {
-							echo ' <p>' . esc_html( $description ) . '</p>';
+							echo ' <p>' . esc_html( apply_filters( 'klen_filter',$description )) . '</p>';
 						}
 
 						echo '</div>';
@@ -106,8 +115,53 @@ class KLEN_Ecomail_Shortcode
 			</div>
 		</div>
 		<?php return ob_get_clean();
-
 	}
+
+    /**
+     * Callback function for the subscriber shortcode.
+     *
+     * @return string Shortcode output.
+     */
+    public function subscriberShortcode($atts)
+    {
+
+        // Default attributes for the shortcode.
+        $default_atts = array(
+            'style' => 'default'//bold;italic;
+        );
+
+        // Merge the passed attributes with the default attributes.
+        $atts = shortcode_atts( $default_atts, $atts );
+
+        // Get the API key and list ID from the options.
+        $api_key = get_option('klen_api_key');
+        $list_id = get_option('klen_list_id');
+
+        // Check if the API key and list ID are set.
+        if ( empty( $api_key ) || empty( $list_id ) ) {
+            $api_message = '<span class="klen__alert klen__alert_warning open">' . __( 'Ecomail Newsletter plugin is not configured correctly. Please check the API key and list ID settings.', 'klen' ) . '</span>';
+
+            return $api_message;
+        }
+
+        $subscriberCount =  get_option('klen_subscribers_count') ? get_option('klen_subscribers_count') : 0;
+
+        return '<span class="klen-subscribers klen-subscribers_'.$atts['style'].'">'.$subscriberCount.'</span>';
+    }
+
+    /**
+     * Filter content for custom variables
+     *
+     * @param $content
+     * @return array|string|string[]
+     */
+    public function klen_filter($content) {
+        $replacements = array(
+            '{{count}}' => get_option('klen_subscribers_count') ? get_option('klen_subscribers_count') : 0
+        );
+        $content = str_replace( array_keys( $replacements ), array_values( $replacements ), $content );
+        return $content;
+    }
 }
 
 new KLEN_Ecomail_Shortcode();
