@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Ecomail Newsletter\n"
-"POT-Creation-Date: 2023-03-29 23:43+0200\n"
+"POT-Creation-Date: 2023-03-29 23:50+0200\n"
 "PO-Revision-Date: 2023-03-27 20:14+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -87,8 +87,8 @@ msgstr ""
 msgid "Newsletter"
 msgstr ""
 
-#: admin/settings/labels.php:137 includes/shortcode.php:59
-msgid "Sign up for our newsletter to stay connected with us."
+#: admin/settings/labels.php:137
+msgid "Join our {{count}} subscribers and stay in touch with us."
 msgstr ""
 
 #: admin/settings/labels.php:149 includes/shortcode.php:60
@@ -251,6 +251,10 @@ msgstr ""
 msgid ""
 "Ecomail Newsletter plugin is not configured correctly. Please check the API "
 "key and list ID settings."
+msgstr ""
+
+#: includes/shortcode.php:59
+msgid "Sign up for our newsletter to stay connected with us."
 msgstr ""
 
 #. Plugin URI of the plugin/theme

@@ -134,7 +134,7 @@ class KLEN_Ecomail_Labels
 	 */
 	public function klen_labels_desc_field_callback()
 	{
-		$labels_desc = get_option('klen_labels_desc') === false ? __('Sign up for our newsletter to stay connected with us.', 'klen') : get_option('klen_labels_desc');
+		$labels_desc = get_option('klen_labels_desc') === false ? __('Join our {{count}} subscribers and stay in touch with us.', 'klen') : get_option('klen_labels_desc');
 
 		echo '<textarea class="klen-input klen-input_labels klen-input_labels-desc" name="klen_labels_desc">' . esc_attr__($labels_desc, 'klen') . '</textarea>';
 	}
