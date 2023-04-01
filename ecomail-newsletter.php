@@ -147,6 +147,10 @@ class KLEN_Ecomail
 		register_setting('klen_main', 'klen_list_id');
 		register_setting('klen_main', 'klen_subscribers_count');
 
+        // Register validation settings
+        register_setting('klen_main', 'klen_api_key_validation');
+        register_setting('klen_main', 'klen_list_id_validation');
+
 		// Register a new settings labels tab
 		register_setting('klen_labels', 'klen_labels_title');
 		register_setting('klen_labels', 'klen_labels_desc');
