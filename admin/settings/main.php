@@ -119,11 +119,13 @@ class KLEN_Ecomail_Main
 
 		echo '<input class="klen-input klen-input_main klen-input_main-api-key" type="text" name="klen_api_key" value="' . esc_attr__( $api_key, 'klen' ) . '" placeholder="' . __( 'ecomail-api-key', 'klen' ) . '" required>';
 
-        if($api_valid === true) {
-            echo '<span class="icon icon_success"></span>';
-        }
-        else {
-            echo '<br><span class="klen__alert klen__alert_error" style="display: inline-block;">' . __( 'This API key is not valid, please check it again.', 'klen' ) . '</span>';
+        if(!empty($api_key)) {
+            if($api_valid === true) {
+                echo '<span class="icon icon_success"></span>';
+            }
+            else {
+                echo '<br><span class="klen__alert klen__alert_error" style="display: inline-block;">' . __( 'This API key is not valid, please check it again.', 'klen' ) . '</span>';
+            }
         }
 
 	}
