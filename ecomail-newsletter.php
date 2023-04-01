@@ -23,12 +23,6 @@ define('KLEN_BASENAME', plugin_basename(__FILE__));
 
 class KLEN_Ecomail
 {
-	/**
-	 * Plugin meta
-	 *
-	 * @var string
-	 */
-	public $plugin_meta;
 
 	/**
 	 *
@@ -36,9 +30,8 @@ class KLEN_Ecomail
 	public function __construct()
 	{
 		$this->actions();
-		$this->load_plugin_files();
-		$this->admin_settings_fields();
-		//$this->init_updater();
+		$this->requirePluginFiles();
+		$this->registerSettingsFields();
 	}
 
 	/**
@@ -48,10 +41,10 @@ class KLEN_Ecomail
 	 */
 	private function actions()
 	{
-		add_action( 'wp_enqueue_scripts', array($this, 'register_frontend_scripts') );
-		add_action( 'admin_enqueue_scripts', array($this, 'register_admin_scripts') );
-		add_action( 'admin_menu', array($this, 'create_admin_page') );
-		add_action( 'admin_init', array( $this, 'language_textdomain' ) );
+		add_action( 'wp_enqueue_scripts', array($this, 'registerFrontendScripts') );
+		add_action( 'admin_enqueue_scripts', array($this, 'registerAdminScripts') );
+		add_action( 'admin_menu', array($this, 'setupAdminPage') );
+		add_action( 'admin_init', array( $this, 'loadTextDomain' ) );
 	}
 
 	/**
@@ -59,7 +52,7 @@ class KLEN_Ecomail
 	 *
 	 * @return void
 	 */
-	public function language_textdomain()
+	public function loadTextDomain()
 	{
 		load_plugin_textdomain( 'klen', false, dirname( KLEN_BASENAME ) . '/languages' );
 	}
@@ -67,14 +60,13 @@ class KLEN_Ecomail
 	/**
 	 * @return void
 	 */
-	private function load_plugin_files()
+	private function requirePluginFiles()
 	{
 		require_once KLEN_PATH_DIR . '/admin/settings/labels.php';
 		require_once KLEN_PATH_DIR . '/admin/settings/appearance.php';
 		require_once KLEN_PATH_DIR . '/admin/settings/main.php';
 		require_once KLEN_PATH_DIR . '/includes/request.php';
 		require_once KLEN_PATH_DIR . '/includes/shortcode.php';
-		//require_once KLEN_PATH_DIR . '/includes/updater.php';
 	}
 
 	/**
@@ -82,7 +74,7 @@ class KLEN_Ecomail
 	 *
 	 * @return void
 	 */
-	public function register_frontend_scripts()
+	public function registerFrontendScripts()
 	{
 		$plugin_meta = get_plugin_data(__FILE__);
 
@@ -98,7 +90,7 @@ class KLEN_Ecomail
 	 *
 	 * @return void
 	 */
-	public function register_admin_scripts()
+	public function registerAdminScripts()
 	{
 		$plugin_meta = get_plugin_data(__FILE__);
 
@@ -125,7 +117,7 @@ class KLEN_Ecomail
 	 *
 	 * @return void
 	 */
-	public function create_admin_page()
+	public function setupAdminPage()
 	{
 		add_submenu_page(
 			'options-general.php',
@@ -133,7 +125,7 @@ class KLEN_Ecomail
 			__('Ecomail Newsletter', 'klen'),
 			'manage_options',
 			'klen_admin_page',
-			array($this, 'admin_page_template')
+			array($this, 'adminPageTemplate')
 		);
 	}
 
@@ -142,18 +134,22 @@ class KLEN_Ecomail
 	 *
 	 * @return void
 	 */
-	public function admin_page_template()
+	public function adminPageTemplate()
 	{
 		require_once KLEN_PATH_DIR . '/admin/settings/template.php';
 	}
 
-	public function admin_settings_fields()
+	public function registerSettingsFields()
 	{
 
 		// Register a new settings main tab
 		register_setting('klen_main', 'klen_api_key');
 		register_setting('klen_main', 'klen_list_id');
 		register_setting('klen_main', 'klen_subscribers_count');
+
+        // Register validation settings
+        register_setting('klen_main', 'klen_api_key_validation');
+        register_setting('klen_main', 'klen_list_id_validation');
 
 		// Register a new settings labels tab
 		register_setting('klen_labels', 'klen_labels_title');
@@ -167,21 +163,6 @@ class KLEN_Ecomail
 
 		// Register a new settings appearance tab
 		register_setting('klen_appearance', 'klen_appearance_style');
-	}
-
-	/**
-	 * GitHub updater before release to WP repository
-	 *
-	 * @return void
-	 */
-	private function init_updater()
-	{
-		$updater = new KLEN_Updater(__FILE__);
-		$updater->set_username('');
-		$updater->set_repository('');
-		$updater->authorize('');
-
-		$updater->initialize();
 	}
 
 }

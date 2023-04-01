@@ -21,7 +21,7 @@ class KLEN_Ecomail_Labels
 	 */
 	public function actions()
 	{
-		add_action( 'admin_init', array( $this, 'fields_setup' ) );
+		add_action( 'admin_init', array( $this, 'setupSectionFields' ) );
 	}
 
 	/**
@@ -29,20 +29,20 @@ class KLEN_Ecomail_Labels
 	 *
 	 * @return void
 	 */
-	public function fields_setup()
+	public function setupSectionFields()
 	{
 
 		add_settings_section(
 			'klen_labels_settings',
 			__('Labels Settings', 'klen'),
-			array($this, 'klen_labels_section_callback'),
+			array($this, 'sectionCallback'),
 			'klen_labels'
 		);
 
 		add_settings_field(
 			'klen_labels_title_field',
 			__('Title', 'klen'),
-			array($this, 'klen_labels_title_field_callback'),
+			array($this, 'titleFieldCallback'),
 			'klen_labels',
 			'klen_labels_settings'
 		);
@@ -50,7 +50,7 @@ class KLEN_Ecomail_Labels
 		add_settings_field(
 			'klen_labels_desc_field',
 			__('Description', 'klen'),
-			array($this, 'klen_labels_desc_field_callback'),
+			array($this, 'desccriptionFieldCallback'),
 			'klen_labels',
 			'klen_labels_settings'
 		);
@@ -58,7 +58,7 @@ class KLEN_Ecomail_Labels
 		add_settings_field(
 			'klen_labels_label_field',
 			__('Label', 'klen'),
-			array($this, 'klen_labels_label_field_callback'),
+			array($this, 'labelFieldCallback'),
 			'klen_labels',
 			'klen_labels_settings'
 		);
@@ -66,7 +66,7 @@ class KLEN_Ecomail_Labels
 		add_settings_field(
 			'klen_labels_placeholder_field',
 			__('Placeholder', 'klen'),
-			array($this, 'klen_labels_placeholder_field_callback'),
+			array($this, 'placeholderFieldCallback'),
 			'klen_labels',
 			'klen_labels_settings'
 		);
@@ -74,7 +74,7 @@ class KLEN_Ecomail_Labels
 		add_settings_field(
 			'klen_labels_button_field',
 			__('Button Text', 'klen')  . ' <span class="klen-label_required">*</span>',
-			array($this, 'klen_labels_button_field_callback'),
+			array($this, 'buttonFieldCallback'),
 			'klen_labels',
 			'klen_labels_settings'
 		);
@@ -82,7 +82,7 @@ class KLEN_Ecomail_Labels
 		add_settings_field(
 			'klen_labels_success_field',
 			__('Success Message', 'klen')  . ' <span class="klen-label_required">*</span>',
-			array($this, 'klen_labels_success_field_callback'),
+			array($this, 'successFieldCallback'),
 			'klen_labels',
 			'klen_labels_settings'
 		);
@@ -90,7 +90,7 @@ class KLEN_Ecomail_Labels
 		add_settings_field(
 			'klen_labels_error_field',
 			__('Error Message', 'klen')  . ' <span class="klen-label_required">*</span>',
-			array($this, 'klen_labels_error_field_callback'),
+			array($this, 'errorFieldCallback'),
 			'klen_labels',
 			'klen_labels_settings'
 		);
@@ -98,7 +98,7 @@ class KLEN_Ecomail_Labels
 		add_settings_field(
 			'klen_labels_warning_field',
 			__('Warning Message', 'klen')  . ' <span class="klen-label_required">*</span>',
-			array($this, 'klen_labels_warning_field_callback'),
+			array($this, 'warningFieldCallback'),
 			'klen_labels',
 			'klen_labels_settings'
 		);
@@ -110,7 +110,7 @@ class KLEN_Ecomail_Labels
 	 *
 	 * @return void
 	 */
-	public function klen_labels_section_callback()
+	public function sectionCallback()
 	{
 		echo __('You can use <strong>{{count}}</strong> in title and description to view number of subscribers.', 'klen');
 	}
@@ -120,7 +120,7 @@ class KLEN_Ecomail_Labels
 	 *
 	 * @return void
 	 */
-	public function klen_labels_title_field_callback()
+	public function titleFieldCallback()
 	{
 		$labels_title = get_option('klen_labels_title') === false ? __('Newsletter', 'klen') : get_option('klen_labels_title');
 
@@ -132,7 +132,7 @@ class KLEN_Ecomail_Labels
 	 *
 	 * @return void
 	 */
-	public function klen_labels_desc_field_callback()
+	public function desccriptionFieldCallback()
 	{
 		$labels_desc = get_option('klen_labels_desc') === false ? __('Join our {{count}} subscribers and stay in touch with us.', 'klen') : get_option('klen_labels_desc');
 
@@ -144,7 +144,7 @@ class KLEN_Ecomail_Labels
 	 *
 	 * @return void
 	 */
-	public function klen_labels_label_field_callback()
+	public function labelFieldCallback()
 	{
 		$labels_label = get_option('klen_labels_label') === false ? __('Your email address', 'klen') : get_option('klen_labels_label');
 
@@ -156,7 +156,7 @@ class KLEN_Ecomail_Labels
 	 *
 	 * @return void
 	 */
-	public function klen_labels_placeholder_field_callback()
+	public function placeholderFieldCallback()
 	{
 		$labels_placeholder = get_option('klen_labels_placeholder') === false ? __('john.doe@gmail.com', 'klen') : get_option('klen_labels_placeholder');
 
@@ -168,7 +168,7 @@ class KLEN_Ecomail_Labels
 	 *
 	 * @return void
 	 */
-	public function klen_labels_button_field_callback()
+	public function buttonFieldCallback()
 	{
 		$labels_button = get_option('klen_labels_button') === false ? __('Subscribe', 'klen') : get_option('klen_labels_button');
 
@@ -180,7 +180,7 @@ class KLEN_Ecomail_Labels
 	 *
 	 * @return void
 	 */
-	public function klen_labels_success_field_callback()
+	public function successFieldCallback()
 	{
 		$labels_success = get_option('klen_labels_success') === false ? __('Thank you for subscribing!', 'klen') : get_option('klen_labels_success');
 
@@ -192,7 +192,7 @@ class KLEN_Ecomail_Labels
 	 *
 	 * @return void
 	 */
-	public function klen_labels_error_field_callback()
+	public function errorFieldCallback()
 	{
 		$labels_error = get_option('klen_labels_error') === false ? __('There was an error processing your request.', 'klen') : get_option('klen_labels_error');
 
@@ -204,7 +204,7 @@ class KLEN_Ecomail_Labels
 	 *
 	 * @return void
 	 */
-	public function klen_labels_warning_field_callback()
+	public function warningFieldCallback()
 	{
 		$labels_warning = get_option('klen_labels_warning') === false ? __('Something went wrong, try again.', 'klen') : get_option('klen_labels_warning');
 
