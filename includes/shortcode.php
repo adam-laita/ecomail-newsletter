@@ -13,7 +13,7 @@ class KLEN_Ecomail_Shortcode
 	{
 		add_shortcode('ecomail-newsletter', array($this, 'newsletterShortcode'));
         add_shortcode('ecomail-subscribers', array($this, 'subscriberShortcode'));
-        add_filter( 'klen_filter', array($this, 'klen_filter') );
+        add_filter( 'klen_content', array($this, 'contentFilter') );
     }
 
 	/**
@@ -72,11 +72,11 @@ class KLEN_Ecomail_Shortcode
 						echo '<div class="klen__text">';
 
 						if ( !empty( $title ) ) {
-							echo '<span class="klen__text-title">' . esc_html( apply_filters( 'klen_filter',$title ) ) . '</span>';
+							echo '<span class="klen__text-title">' . esc_html( apply_filters( 'klen_content',$title ) ) . '</span>';
 						}
 
 						if ( !empty( $description ) ) {
-							echo ' <p>' . esc_html( apply_filters( 'klen_filter',$description )) . '</p>';
+							echo ' <p>' . esc_html( apply_filters( 'klen_content',$description )) . '</p>';
 						}
 
 						echo '</div>';
@@ -155,7 +155,7 @@ class KLEN_Ecomail_Shortcode
      * @param $content
      * @return array|string|string[]
      */
-    public function klen_filter($content) {
+    public function contentFilter($content) {
         $replacements = array(
             '{{count}}' => get_option('klen_subscribers_count') ? get_option('klen_subscribers_count') : 0
         );

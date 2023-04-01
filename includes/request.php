@@ -21,11 +21,11 @@ class KLEN_Ecomail_Requst
 	 */
 	public function actions()
 	{
-		add_action('rest_api_init', array($this, 'register_endpoint'));
-		add_action('klen_update_subscribers_count', array($this, 'update_subscribers_count'));
+		add_action('rest_api_init', array($this, 'registerEndpoints'));
+		add_action('klen_updateSubscribersCount', array($this, 'updateSubscribersCount'));
 		add_action('wp', function () {
-			if (!wp_next_scheduled('klen_update_subscribers_count')) {
-				wp_schedule_event(time(), 'daily', 'klen_update_subscribers_count');
+			if (!wp_next_scheduled('klen_updateSubscribersCount')) {
+				wp_schedule_event(time(), 'daily', 'klen_updateSubscribersCount');
 			}
 		});
 	}
@@ -35,16 +35,16 @@ class KLEN_Ecomail_Requst
 	 *
 	 * @return void
 	 */
-	public function register_endpoint()
+	public function registerEndpoints()
 	{
 		register_rest_route('klen-ecomail/v1', '/subscribe', array(
 			'methods' => 'POST',
-			'callback' => array($this, 'subscribe_user')
+			'callback' => array($this, 'subscribeUser')
 		));
 
 		register_rest_route('klen-ecomail/v1', '/subscribers-count', array(
 			'methods' => 'GET',
-			'callback' => array($this, 'update_subscribers_count')
+			'callback' => array($this, 'updateSubscribersCount')
 		));
 	}
 
@@ -53,7 +53,7 @@ class KLEN_Ecomail_Requst
 	 *
 	 * @return void
 	 */
-	public function subscribe_user($request)
+	public function subscribeUser($request)
 	{
 		$api_key = get_option('klen_api_key');
 		$list_id = get_option('klen_list_id');
@@ -93,7 +93,7 @@ class KLEN_Ecomail_Requst
 		}
 
         //Update subscriber count
-        $this->update_subscribers_count();
+        $this->updateSubscribersCount();
 
 		// Return the response from the API
 		return $response;
@@ -104,7 +104,7 @@ class KLEN_Ecomail_Requst
 	 *
 	 * @return void
 	 */
-	public function update_subscribers_count()
+	public function updateSubscribersCount()
 	{
 		$api_key = get_option('klen_api_key');
 		$list_id = get_option('klen_list_id');

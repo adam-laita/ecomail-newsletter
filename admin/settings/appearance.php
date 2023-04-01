@@ -21,7 +21,7 @@ class KLEN_Ecomail_Appearance
 	 */
 	public function actions()
 	{
-		add_action('admin_init', array($this, 'fields_setup'));
+		add_action('admin_init', array($this, 'setupSectionFields'));
 	}
 
 	/**
@@ -29,20 +29,20 @@ class KLEN_Ecomail_Appearance
 	 *
 	 * @return void
 	 */
-	public function fields_setup()
+	public function setupSectionFields()
 	{
 
 		add_settings_section(
 			'klen_appearance_settings',
 			__('Appearance Settings', 'klen'),
-			array($this, 'klen_appearance_section_callback'),
+			array($this, 'sectionCallback'),
 			'klen_appearance'
 		);
 
 		add_settings_field(
 			'klen_appearance_style_field',
 			__('Form Style', 'klen'),
-			array($this, 'klen_appearance_style_field_callback'),
+			array($this, 'styleFieldCallback'),
 			'klen_appearance',
 			'klen_appearance_settings'
 		);
@@ -54,7 +54,7 @@ class KLEN_Ecomail_Appearance
 	 *
 	 * @return void
 	 */
-	public function klen_appearance_section_callback()
+	public function sectionCallback()
 	{
 		echo __( 'In this setting, you can select the desired form style.', 'klen' );
 	}
@@ -64,7 +64,7 @@ class KLEN_Ecomail_Appearance
 	 *
 	 * @return void
 	 */
-	public function klen_appearance_style_field_callback()
+	public function styleFieldCallback()
 	{
 		$style = get_option('klen_appearance_style') ? get_option('klen_appearance_style') : 'default';
 

@@ -21,7 +21,7 @@ class KLEN_Ecomail_Main
 	 */
 	public function actions()
 	{
-		add_action('admin_init', array( $this, 'fields_setup' ) );
+		add_action('admin_init', array( $this, 'setupSectionFields' ) );
 	}
 
 	/**
@@ -29,20 +29,20 @@ class KLEN_Ecomail_Main
 	 *
 	 * @return void
 	 */
-	public function fields_setup()
+	public function setupSectionFields()
 	{
 
 		add_settings_section(
 			'klen_main_settings',
 			__( 'Main Settings', 'klen' ),
-			array( $this, 'klen_main_section_callback' ),
+			array( $this, 'sectionCallback' ),
 			'klen_main'
 		);
 
 		add_settings_field(
 			'klen_api_key_field',
 			__( 'API Key', 'klen' ) . ' <span class="klen-label_required">*</span>',
-			array( $this, 'klen_api_key_field_callback' ),
+			array( $this, 'apiFieldCallback' ),
 			'klen_main',
 			'klen_main_settings'
 		);
@@ -50,15 +50,15 @@ class KLEN_Ecomail_Main
 		add_settings_field(
 			'klen_list_id_field',
 			__( 'List ID', 'klen' ) . ' <span class="klen-label_required">*</span>',
-			array( $this, 'klen_list_id_field_callback' ),
+			array( $this, 'listIDFieldCallback' ),
 			'klen_main',
 			'klen_main_settings'
 		);
 
 		add_settings_field(
-			'klen_subscriber_count_field',
+			'countFieldCallback',
 			__( 'Number of subscribers', 'klen' ),
-			array( $this, 'klen_subscriber_count_field' ),
+			array( $this, 'countFieldCallback' ),
 			'klen_main',
 			'klen_main_settings'
 		);
@@ -70,7 +70,7 @@ class KLEN_Ecomail_Main
 	 *
 	 * @return void
 	 */
-	public function klen_main_section_callback()
+	public function sectionCallback()
 	{
 		echo __( 'The API key and list ID need to be filled in for the plugin to work properly. The number of subscribers will be shown after the API key is retrieved.', 'klen' );
 	}
@@ -80,7 +80,7 @@ class KLEN_Ecomail_Main
 	 *
 	 * @return void
 	 */
-	public function klen_api_key_field_callback()
+	public function apiFieldCallback()
 	{
 		$api_key = get_option( 'klen_api_key' );
 
@@ -96,7 +96,7 @@ class KLEN_Ecomail_Main
 	 *
 	 * @return void
 	 */
-	public function klen_list_id_field_callback()
+	public function listIDFieldCallback()
 	{
 		$list_id = get_option( 'klen_list_id' ) === false ? 1 : get_option( 'klen_list_id' );
 		
@@ -112,7 +112,7 @@ class KLEN_Ecomail_Main
 	 *
 	 * @return void
 	 */
-	public function klen_subscriber_count_field()
+	public function countFieldCallback()
 	{
 		$subscriber_count = get_option('klen_subscribers_count');
 
