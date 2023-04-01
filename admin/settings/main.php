@@ -138,12 +138,55 @@ class KLEN_Ecomail_Main
 	public function listIDFieldCallback()
 	{
 		$list_id = get_option( 'klen_list_id' ) === false ? 1 : get_option( 'klen_list_id' );
+        $list_valid = get_option('klen_list_id_validation');
+        $api_key = get_option( 'klen_api_key' );
+        $api_valid = get_option('klen_api_key_validation');
+
+        if (!empty($api_key) && !empty($api_valid) && !empty($list_id) && empty($list_valid)) {
+
+            // Make a call to the Ecomail API to check if the API key is valid
+            $url = 'https://api2.ecomailapp.cz/lists/' . $list_id;
+
+            $args = array(
+                'headers' => array(
+                    'Content-Type' => 'application/json',
+                    'key' => $api_key
+                ),
+                'timeout' => 10
+            );
+            $response = wp_remote_get($url, $args);
+
+            if (!is_wp_error($response)) {
+                $result = json_decode($response['body'], true);
+                if(!empty($result['message']) && $result['message'] == 'Wrong api key') {
+                    // Api key is invalid and therefore list_id is invalid
+                    update_option('klen_api_key_validation', false);
+                    update_option('klen_list_id_validation', false);
+                }
+                elseif(!empty($result['message']) && $result['message'] == 'Not Found!') {
+                    update_option('klen_list_id_validation', false);
+                }
+                else {
+                    update_option('klen_list_id_validation', true);
+                    update_option('klen_subscribers_count', $result['subscribers']['subscribed']);
+                    $list_valid = true;
+                }
+            } else {
+                // API call failed
+                add_settings_error('klen_list_id', 'klen_api_key_error', __('API call failed', 'klen_admin'));
+            }
+        }
 		
 		echo '<input class="klen-input klen-input_main klen-input_main-list-id" type="number" name="klen_list_id" value="' . esc_attr__( $list_id, 'klen' ) . '" required>';
 
-		echo '<span class="icon icon_success"></span>';
-
-		echo '<br><span class="klen__alert klen__alert_error" style="display: inline-block;">' . __( 'This List ID is not valid, please check it again.', 'klen' ) . '</span>';
+        if(!empty($list_id)) {
+            if($list_valid === true) {
+                echo '<span class="icon icon_success"></span>';
+            }
+            else {
+                echo '<br><span class="klen__alert klen__alert_error" style="display: inline-block;">' . __( 'This List ID is not valid, please check it again.', 'klen' ) . '</span>';
+            }
+        }
 	}
 
 	/**
