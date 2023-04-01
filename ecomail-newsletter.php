@@ -38,7 +38,6 @@ class KLEN_Ecomail
 		$this->actions();
 		$this->load_plugin_files();
 		$this->admin_settings_fields();
-		//$this->init_updater();
 	}
 
 	/**
