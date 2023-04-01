@@ -23,12 +23,6 @@ define('KLEN_BASENAME', plugin_basename(__FILE__));
 
 class KLEN_Ecomail
 {
-	/**
-	 * Plugin meta
-	 *
-	 * @var string
-	 */
-	public $plugin_meta;
 
 	/**
 	 *
