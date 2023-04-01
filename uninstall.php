@@ -7,6 +7,8 @@ exit();
 delete_option('klen_api_key');
 delete_option('klen_list_id');
 delete_option('klen_subscribers_count');
+delete_option('klen_api_key_validation');
+delete_option('klen_list_id_validation');
 delete_option('klen_labels_title');
 delete_option('klen_labels_desc');
 delete_option('klen_labels_label');
