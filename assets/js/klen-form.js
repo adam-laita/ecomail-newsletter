@@ -2,6 +2,9 @@
     class KlenEcomail {
         constructor() {
             this.form = document.getElementById('klen-ecomail-form');
+            if(!this.form) {
+                return;
+            }
             this.submitButton = this.form.querySelector('input[type="submit"]');
             this.success = document.getElementById('klen_success');
             this.error = document.getElementById('klen_error');
