@@ -101,15 +101,15 @@ class KLEN_Ecomail_Shortcode
 
 				<div class="klen__alerts">
 					<div class="klen__alert klen__alert_success" id="klen_success">
-						<p><?= esc_html( $success_message ); ?></p>
+						<span><?= esc_html( $success_message ); ?></span>
 					</div>
 
 					<div class="klen__alert klen__alert_error" id="klen_error">
-						<p><?= esc_html( $error_message ); ?></p>
+						<span><?= esc_html( $error_message ); ?></span>
 					</div>
 
 					<div class="klen__alert klen__alert_warning" id="klen_warning">
-						<p><?= esc_html( $warning_message ); ?></p>
+						<span><?= esc_html( $warning_message ); ?></span>
 					</div>
 				</div>
 			</div>
