@@ -7,6 +7,7 @@
 .klen-admin
 {
 	display: grid;
+
 	gap: 30px;
 	grid-template-columns: auto 27%;
 }
@@ -19,6 +20,8 @@
 .klen-input[disabled]
 {
 	cursor: not-allowed;
+
+	background: rgba(255,255,255,0);
 }
 
 .klen-label_required
@@ -61,13 +64,6 @@
 	border: 1px solid #c3c4c7;
 	background: #fff;
 	box-shadow: 0 1px 1px rgba(0,0,0,0.04);
-}
-
-/* MAIN
------------------------------------------ */
-.klen-input_main
-{
-	text-align: right;
 }
 
 /* LABELS
