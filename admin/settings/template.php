@@ -47,11 +47,12 @@ $tab = isset($_GET['tab']) ? $_GET['tab'] : $default_tab;
 					echo '</form>';
 					break;
 				default:
-					echo '<form action="options.php" method="post">';
-					settings_fields('klen_main');
+                    echo '<form action="' . esc_url(admin_url('options-general.php?page=klen_admin_page')) . '" method="post">';
+                    settings_fields('klen_main');
 					do_settings_sections('klen_main');
 					submit_button(__('Save settings', 'klen'));
-					echo '</form>';
+                    echo '<input type="hidden" name="klen_form_submission" value="1">';
+                    echo '</form>';
 					break;
 			endswitch; ?>
 		</div>
