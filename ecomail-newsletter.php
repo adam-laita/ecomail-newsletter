@@ -34,8 +34,8 @@ class KLEN_Ecomail {
 	 */
 	public function __construct() {
 		$this->actions();
-		$this->load_plugin_files();
-		$this->admin_settings_fields();
+		$this->includePluginFiles();
+		$this->registerSettingsFields();
 	}
 
 	/**
@@ -44,10 +44,10 @@ class KLEN_Ecomail {
 	 * @return void
 	 */
 	private function actions() {
-		add_action( 'wp_enqueue_scripts', array( $this, 'register_frontend_scripts' ) );
-		add_action( 'admin_enqueue_scripts', array( $this, 'register_admin_scripts' ) );
-		add_action( 'admin_menu', array( $this, 'create_admin_page' ) );
-		add_action( 'admin_init', array( $this, 'language_textdomain' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'registerFrontendScripts' ) );
+		add_action( 'admin_enqueue_scripts', array( $this, 'registerAdminScripts' ) );
+		add_action( 'admin_menu', array( $this, 'createAdminPage' ) );
+		add_action( 'admin_init', array( $this, 'languageTextdomain' ) );
 	}
 
 	/**
@@ -55,14 +55,14 @@ class KLEN_Ecomail {
 	 *
 	 * @return void
 	 */
-	public function language_textdomain() {
+	public function languageTextdomain() {
 		load_plugin_textdomain( 'klen', false, dirname( KLEN_BASENAME ) . '/languages' );
 	}
 
 	/**
 	 * @return void
 	 */
-	private function load_plugin_files() {
+	private function includePluginFiles() {
 		require_once KLEN_PATH_DIR . '/admin/settings/labels.php';
 		require_once KLEN_PATH_DIR . '/admin/settings/appearance.php';
 		require_once KLEN_PATH_DIR . '/admin/settings/main.php';
@@ -76,7 +76,7 @@ class KLEN_Ecomail {
 	 *
 	 * @return void
 	 */
-	public function register_frontend_scripts() {
+	public function registerFrontendScripts() {
 		$plugin_meta = get_plugin_data( __FILE__ );
 
 		// Styles for Ecomail form
@@ -91,7 +91,7 @@ class KLEN_Ecomail {
 	 *
 	 * @return void
 	 */
-	public function register_admin_scripts() {
+	public function registerAdminScripts() {
 		$plugin_meta = get_plugin_data( __FILE__ );
 
 		$style = get_option( 'klen_appearance_style' );
@@ -117,14 +117,14 @@ class KLEN_Ecomail {
 	 *
 	 * @return void
 	 */
-	public function create_admin_page() {
+	public function createAdminPage() {
 		add_submenu_page(
 			'options-general.php',
 			__( 'Ecomail Newsletter', 'klen' ),
 			__( 'Ecomail Newsletter', 'klen' ),
 			'manage_options',
 			'klen_admin_page',
-			array( $this, 'admin_page_template' )
+			array( $this, 'adminPageTemplate' )
 		);
 	}
 
@@ -133,11 +133,11 @@ class KLEN_Ecomail {
 	 *
 	 * @return void
 	 */
-	public function admin_page_template() {
+	public function adminPageTemplate() {
 		require_once KLEN_PATH_DIR . '/admin/settings/template.php';
 	}
 
-	public function admin_settings_fields() {
+	public function registerSettingsFields() {
 
 		// Register a new settings main tab
 		register_setting( 'klen_main', 'klen_api_key' );
