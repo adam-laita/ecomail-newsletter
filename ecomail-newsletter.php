@@ -38,7 +38,6 @@ class KLEN_Ecomail
 		$this->actions();
 		$this->load_plugin_files();
 		$this->admin_settings_fields();
-		//$this->init_updater();
 	}
 
 	/**
@@ -168,22 +167,6 @@ class KLEN_Ecomail
 		// Register a new settings appearance tab
 		register_setting('klen_appearance', 'klen_appearance_style');
 	}
-
-	/**
-	 * GitHub updater before release to WP repository
-	 *
-	 * @return void
-	 */
-	private function init_updater()
-	{
-		$updater = new KLEN_Updater(__FILE__);
-		$updater->set_username('');
-		$updater->set_repository('');
-		$updater->authorize('');
-
-		$updater->initialize();
-	}
-
 }
 
 new KLEN_Ecomail();
