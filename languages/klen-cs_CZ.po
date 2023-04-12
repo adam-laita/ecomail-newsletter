@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Ecomail Newsletter\n"
-"POT-Creation-Date: 2023-04-12 19:57+0200\n"
-"PO-Revision-Date: 2023-04-12 19:58+0200\n"
+"POT-Creation-Date: 2023-04-12 21:07+0200\n"
+"PO-Revision-Date: 2023-04-12 21:08+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: cs_CZ\n"
@@ -21,63 +21,71 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.min.js\n"
 
-#: admin/settings/appearance.php:37
+#: admin/settings/appearance.php:33
 msgid "Appearance Settings"
 msgstr "Nastavení vzhledu"
 
-#: admin/settings/appearance.php:44
+#: admin/settings/appearance.php:40
 msgid "Form Style"
 msgstr "Styl formuláře"
 
-#: admin/settings/appearance.php:59
+#: admin/settings/appearance.php:54
 msgid "In this setting, you can select the desired form style."
 msgstr "V tomto nastavení si můžete vybrat požadovaný styl formuláře."
 
-#: admin/settings/appearance.php:72
+#: admin/settings/appearance.php:66
 msgid "Default"
 msgstr "Výchozí"
 
-#: admin/settings/appearance.php:73
+#: admin/settings/appearance.php:67
 msgid "None"
 msgstr "Žádný"
 
-#: admin/settings/labels.php:37
+#: admin/settings/labels.php:33
 msgid "Labels Settings"
 msgstr "Popisky"
 
-#: admin/settings/labels.php:44
+#: admin/settings/labels.php:40 includes/translations.php:36
+#: includes/translations.php:57
 msgid "Title"
 msgstr "Nadpis"
 
-#: admin/settings/labels.php:52
+#: admin/settings/labels.php:48 includes/translations.php:37
+#: includes/translations.php:58
 msgid "Description"
 msgstr "Popis"
 
-#: admin/settings/labels.php:60
+#: admin/settings/labels.php:56 includes/translations.php:38
+#: includes/translations.php:59
 msgid "Label"
 msgstr "Popisek pole"
 
-#: admin/settings/labels.php:68
+#: admin/settings/labels.php:64 includes/translations.php:39
+#: includes/translations.php:60
 msgid "Placeholder"
 msgstr "Zástupný text"
 
-#: admin/settings/labels.php:76
+#: admin/settings/labels.php:72 includes/translations.php:40
+#: includes/translations.php:61
 msgid "Button Text"
 msgstr "Text tlačítka"
 
-#: admin/settings/labels.php:84
+#: admin/settings/labels.php:80 includes/translations.php:41
+#: includes/translations.php:62
 msgid "Success Message"
 msgstr "Zpráva o úspěchu"
 
-#: admin/settings/labels.php:92
+#: admin/settings/labels.php:88 includes/translations.php:42
+#: includes/translations.php:63
 msgid "Error Message"
 msgstr "Chybová zpráva"
 
-#: admin/settings/labels.php:100
+#: admin/settings/labels.php:96 includes/translations.php:43
+#: includes/translations.php:64
 msgid "Warning Message"
 msgstr "Varovná zpráva"
 
-#: admin/settings/labels.php:115
+#: admin/settings/labels.php:110
 msgid ""
 "You can use <strong>{{count}}</strong> in title and description to view "
 "number of subscribers."
@@ -85,55 +93,55 @@ msgstr ""
 "Můžete použít <strong>{{count}}</strong> v nadpisu a popisu pro zobrazení "
 "počtu odběratelů."
 
-#: admin/settings/labels.php:125 includes/shortcode.php:58
+#: admin/settings/labels.php:119 includes/shortcode.php:55
 msgid "Newsletter"
 msgstr "Newsletter"
 
-#: admin/settings/labels.php:137
+#: admin/settings/labels.php:130
 msgid "Join our {{count}} subscribers and stay in touch with us."
 msgstr "Přidejte se k {{count}} odběratelům a zůstaňte tak s námi v kontaktu."
 
-#: admin/settings/labels.php:149 includes/shortcode.php:60
+#: admin/settings/labels.php:141 includes/shortcode.php:57
 msgid "Your email address"
 msgstr "Vaše e-mailová adresa"
 
-#: admin/settings/labels.php:161 includes/shortcode.php:61
+#: admin/settings/labels.php:152 includes/shortcode.php:58
 msgid "john.doe@gmail.com"
 msgstr "jan.novak@seznam.cz"
 
-#: admin/settings/labels.php:173 includes/shortcode.php:62
+#: admin/settings/labels.php:163 includes/shortcode.php:59
 msgid "Subscribe"
 msgstr "Odebírat"
 
-#: admin/settings/labels.php:185 includes/shortcode.php:63
+#: admin/settings/labels.php:174 includes/shortcode.php:60
 msgid "Thank you for subscribing!"
 msgstr "Děkujeme za přihlášení!"
 
-#: admin/settings/labels.php:197 includes/shortcode.php:64
+#: admin/settings/labels.php:185 includes/shortcode.php:61
 msgid "There was an error processing your request."
 msgstr "Při zpracování vašeho požadavku došlo k chybě."
 
-#: admin/settings/labels.php:209 includes/shortcode.php:65
+#: admin/settings/labels.php:196 includes/shortcode.php:62
 msgid "Something went wrong, try again."
 msgstr "Něco se pokazilo, zkuste to ještě jednou."
 
-#: admin/settings/main.php:38
+#: admin/settings/main.php:34
 msgid "Main Settings"
 msgstr "Hlavní nastavení"
 
-#: admin/settings/main.php:45
+#: admin/settings/main.php:41
 msgid "API Key"
 msgstr "API klíč"
 
-#: admin/settings/main.php:53
+#: admin/settings/main.php:49
 msgid "List ID"
 msgstr "ID seznamu"
 
-#: admin/settings/main.php:61
+#: admin/settings/main.php:57
 msgid "Number of subscribers"
 msgstr "Počet odběratelů"
 
-#: admin/settings/main.php:76
+#: admin/settings/main.php:71
 msgid ""
 "The API key and list ID need to be filled in for the plugin to work "
 "properly. The number of subscribers will be shown after the API key is "
@@ -142,23 +150,23 @@ msgstr ""
 "Aby plugin fungoval správně, musí být vyplněn API klíč a ID seznamu. Počet "
 "odběratelů se zobrazí po načtení API klíče."
 
-#: admin/settings/main.php:89
+#: admin/settings/main.php:83
 msgid "ecomail-api-key"
 msgstr "ecomail-api-klíč"
 
-#: admin/settings/main.php:96
+#: admin/settings/main.php:89
 msgid "This API key is not valid, please check it again."
 msgstr "Tento API klíč není validní, zkontrolujte ho prosím ještě jednou."
 
-#: admin/settings/main.php:119
+#: admin/settings/main.php:110
 msgid "This List ID is not valid, please check it again."
 msgstr "Toto ID seznamu není validní, zkontrolujte ho prosím ještě jednou."
 
-#: admin/settings/main.php:133
+#: admin/settings/main.php:123
 msgid "number-of-subscribers"
 msgstr "počet-odběratelů"
 
-#: admin/settings/main.php:185
+#: admin/settings/main.php:172
 msgid "Settings saved successfully"
 msgstr "Nastavení bylo úspěšně uloženo"
 
@@ -166,39 +174,39 @@ msgstr "Nastavení bylo úspěšně uloženo"
 msgid "Settings Saved"
 msgstr "Nastavení bylo uloženo"
 
-#: admin/settings/template.php:26
+#: admin/settings/template.php:27
 msgid "Main settings"
 msgstr "Hlavní nastavení"
 
-#: admin/settings/template.php:28
+#: admin/settings/template.php:30
 msgid "Labels"
 msgstr "Popisky"
 
-#: admin/settings/template.php:30
+#: admin/settings/template.php:33
 msgid "Appearance"
 msgstr "Vzhled"
 
-#: admin/settings/template.php:39
+#: admin/settings/template.php:42
 msgid "Save labels"
 msgstr "Uložit popisky"
 
-#: admin/settings/template.php:46
+#: admin/settings/template.php:49
 msgid "Save appearance"
 msgstr "Uložit vzhled"
 
-#: admin/settings/template.php:53
+#: admin/settings/template.php:56
 msgid "Save settings"
 msgstr "Uložit nastavení"
 
-#: admin/settings/template.php:61
+#: admin/settings/template.php:64
 msgid "Shortcode preview:"
 msgstr "Náhled shortcode:"
 
-#: admin/settings/template.php:68
+#: admin/settings/template.php:71
 msgid "How to get the API key?"
 msgstr "Jak získat API klíč?"
 
-#: admin/settings/template.php:70
+#: admin/settings/template.php:73
 msgid ""
 "Just log into the Ecomail administration on <a href=\"https://www.ecomail.cz/"
 "\" target=\"_blank\" rel=\"nofollow noopener noreferrer\">Ecomail.cz</a>, "
@@ -218,7 +226,7 @@ msgstr ""
 "youtube.com/\" target=\"_blank\" rel=\"nofollow noopener noreferrer\">Jak "
 "nastavit Ecomail plugin do WordPressu</a>."
 
-#: admin/settings/template.php:72
+#: admin/settings/template.php:75
 msgid ""
 "The <strong>List ID</strong> is always 1 by default. If you want to select a "
 "different list, you can find its ID in the URL in the Ecomail "
@@ -228,68 +236,68 @@ msgstr ""
 "jiný seznam, jeho ID zjistíte v URL v administraci Ecomail. Pokud si nevíte "
 "rady podívejte se na výše zmíněné video."
 
-#: admin/settings/template.php:74
+#: admin/settings/template.php:77
 msgid "How to display the form?"
 msgstr "Jak zobrazit formulář?"
 
-#: admin/settings/template.php:76
+#: admin/settings/template.php:79
 msgid ""
 "The form is displayed through a shortcode. You can use this piece of "
 "\"code\" anywhere on the web, especially in text blocks or WYSIWYG editors. "
 "You can use 2 shortcodes:<br><br><strong style=\"color: rgb(71, 173, 0);"
-"\">[ecomail-newsletter]</strong> - displays the newsletter subscription form "
-"and has 1 optional align parameter with values \"left\", \"center\" or "
+"\">[ecomail-newsletter]</strong><br> - displays the newsletter subscription "
+"form and has 1 optional align parameter with values \"left\", \"center\" or "
 "\"right\", for example [ecomail-newsletter align=\"right\"]<br><br><strong "
-"style=\"color: rgb(71, 173, 0);\">[ecomail-subscribers]</strong> - displays "
-"the number of subscribed subscribers and has 1 optional style parameter with "
-"values \"bold\" or \"italic\", for example [ecomail-subscribers "
-"style=\"bold\"]<br><br>In case you don't know how to use the shortcode "
-"correctly, check out our sample video: <a href=\"https://www.youtube.com/\" "
-"target=\"_blank\" rel=\"nofollow noopener noreferrer\">How to use the "
-"shortcode from the Ecomail Newsletter plugin</a>."
+"style=\"color: rgb(71, 173, 0);\">[ecomail-subscribers]</strong><br> - "
+"displays the number of subscribed subscribers and has 1 optional style "
+"parameter with values \"bold\" or \"italic\", for example [ecomail-"
+"subscribers style=\"bold\"]<br><br>In case you don't know how to use the "
+"shortcode correctly, check out our sample video: <a href=\"https://www."
+"youtube.com/\" target=\"_blank\" rel=\"nofollow noopener noreferrer\">How to "
+"use the shortcode from the Ecomail Newsletter plugin</a>."
 msgstr ""
 "Zobrazení formuláře se provádí skrze zkrácený kód, neboli shortcode. Tento "
 "kus \"kódu\" můžete použít libovolně na webu, především v textových blocích, "
 "nebo WYSIWYG editoru. Využít můžete hned 2 shortcody:<br><br><strong "
-"style=\"color: rgb(71, 173, 0);\">[ecomail-newsletter]</strong> - zobrazí "
-"formulář pro zápis k odběru newsletteru a má 1 volitelný parametr align s "
-"hodnotami \"left\", \"center\", nebo \"right\", například tedy [ecomail-"
-"newsletter align=\"right\"]<br><br><strong style=\"color: rgb(71, 173, 0);"
-"\">[ecomail-subscribers]</strong> - zobrazí počet přihlášených odběratelů a "
-"má 1 volitelný parametr style s hodnotami \"bold\", nebo \"italic\", "
-"například [ecomail-subscribers style=\"bold\"]<br><br>V případě, že nevíte "
-"jak shortcode správně použít, podívejte se na naše ukázkové video: <a "
-"href=\"https://www.youtube.com/\" target=\"_blank\" rel=\"nofollow noopener "
-"noreferrer\">Jak použít shortcode z pluginu Ecomail Newsletter</a>."
+"style=\"color: rgb(71, 173, 0);\">[ecomail-newsletter]</strong><br> - "
+"zobrazí formulář pro zápis k odběru newsletteru a má 1 volitelný parametr "
+"align s hodnotami \"left\", \"center\", nebo \"right\", například tedy "
+"[ecomail-newsletter align=\"right\"]<br><br><strong style=\"color: rgb(71, "
+"173, 0);\">[ecomail-subscribers]</strong><br> - zobrazí počet přihlášených "
+"odběratelů a má 1 volitelný parametr style s hodnotami \"bold\", nebo "
+"\"italic\", například [ecomail-subscribers style=\"bold\"]<br><br>V případě, "
+"že nevíte jak shortcode správně použít, podívejte se na naše ukázkové video: "
+"<a href=\"https://www.youtube.com/\" target=\"_blank\" rel=\"nofollow "
+"noopener noreferrer\">Jak použít shortcode z pluginu Ecomail Newsletter</a>."
 
-#: admin/settings/template.php:78
+#: admin/settings/template.php:81
 msgid "Support"
 msgstr "Podpora"
 
-#: admin/settings/template.php:80
+#: admin/settings/template.php:83
 msgid ""
-"If you have any problems, please add a ticket to our <a href=\"https://"
-"github.com/adam-laita/ecomail-newsletter/issues\" target=\"_blank\" "
-"rel=\"nofollow noopener noreferrer\">GitHub repository</a>."
+"If you have any problems, please add a issue to our <a href=\"https://github."
+"com/adam-laita/ecomail-newsletter/issues\" target=\"_blank\" rel=\"nofollow "
+"noopener noreferrer\">GitHub repository</a>."
 msgstr ""
-"V případě jakýchkoliv potíží přidejte prosím ticket do našeho <a "
+"V případě jakýchkoliv potíží přidejte prosím issue do našeho <a "
 "href=\"https://github.com/adam-laita/ecomail-newsletter/issues\" "
 "target=\"_blank\" rel=\"nofollow noopener noreferrer\">GitHub repozitáře</a>."
 
 #. Plugin Name of the plugin/theme
-#: ecomail-newsletter.php:131 ecomail-newsletter.php:132
+#: ecomail-newsletter.php:123 ecomail-newsletter.php:124
 msgid "Ecomail Newsletter"
 msgstr "Ecomail Newsletter"
 
-#: includes/request.php:63
+#: includes/request.php:58
 msgid "API key and list ID are not set."
 msgstr "API klíč a ID seznamu nejsou nastaveny."
 
-#: includes/request.php:92
+#: includes/request.php:87
 msgid "Error while subscribing to Ecomail."
 msgstr "Chyba při přihlášení k odběru Ecomail."
 
-#: includes/shortcode.php:42 includes/shortcode.php:142
+#: includes/shortcode.php:39 includes/shortcode.php:141
 msgid ""
 "Ecomail Newsletter plugin is not configured correctly. Please check the API "
 "key and list ID settings."
@@ -297,7 +305,7 @@ msgstr ""
 "Plugin Ecomail Newsletter není správně nakonfigurován. Zkontrolujte prosím "
 "nastavení API klíče a ID seznamu."
 
-#: includes/shortcode.php:59
+#: includes/shortcode.php:56
 msgid "Sign up for our newsletter to stay connected with us."
 msgstr ""
 "Přihlaste se k našemu odběru newsletteru a zůstaňte tak s námi ve spojení."

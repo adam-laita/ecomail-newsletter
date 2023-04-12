@@ -76,11 +76,11 @@ $tab         = isset( $_GET['tab'] ) ? $_GET['tab'] : $default_tab;
 
             <h3><?php _e( 'How to display the form?', 'klen' ); ?></h3>
 
-            <p><?php _e( 'The form is displayed through a shortcode. You can use this piece of "code" anywhere on the web, especially in text blocks or WYSIWYG editors. You can use 2 shortcodes:<br><br><strong style="color: rgb(71, 173, 0);">[ecomail-newsletter]</strong> - displays the newsletter subscription form and has 1 optional align parameter with values "left", "center" or "right", for example [ecomail-newsletter align="right"]<br><br><strong style="color: rgb(71, 173, 0);">[ecomail-subscribers]</strong> - displays the number of subscribed subscribers and has 1 optional style parameter with values "bold" or "italic", for example [ecomail-subscribers style="bold"]<br><br>In case you don\'t know how to use the shortcode correctly, check out our sample video: <a href="https://www.youtube.com/" target="_blank" rel="nofollow noopener noreferrer">How to use the shortcode from the Ecomail Newsletter plugin</a>.', 'klen' ); ?></p>
+            <p><?php _e( 'The form is displayed through a shortcode. You can use this piece of "code" anywhere on the web, especially in text blocks or WYSIWYG editors. You can use 2 shortcodes:<br><br><strong style="color: rgb(71, 173, 0);">[ecomail-newsletter]</strong><br> - displays the newsletter subscription form and has 1 optional align parameter with values "left", "center" or "right", for example [ecomail-newsletter align="right"]<br><br><strong style="color: rgb(71, 173, 0);">[ecomail-subscribers]</strong><br> - displays the number of subscribed subscribers and has 1 optional style parameter with values "bold" or "italic", for example [ecomail-subscribers style="bold"]<br><br>In case you don\'t know how to use the shortcode correctly, check out our sample video: <a href="https://www.youtube.com/" target="_blank" rel="nofollow noopener noreferrer">How to use the shortcode from the Ecomail Newsletter plugin</a>.', 'klen' ); ?></p>
 
             <h3><?php _e( 'Support', 'klen' ); ?></h3>
 
-            <p><?php _e( 'If you have any problems, please add a ticket to our <a href="https://github.com/adam-laita/ecomail-newsletter/issues" target="_blank" rel="nofollow noopener noreferrer">GitHub repository</a>.', 'klen' ); ?></p>
+            <p><?php _e( 'If you have any problems, please add a issue to our <a href="https://github.com/adam-laita/ecomail-newsletter/issues" target="_blank" rel="nofollow noopener noreferrer">GitHub repository</a>.', 'klen' ); ?></p>
         </div>
     </div>
 </div>
