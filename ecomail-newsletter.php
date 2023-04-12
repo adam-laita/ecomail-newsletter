@@ -74,7 +74,7 @@ class KLEN_Ecomail
 		require_once KLEN_PATH_DIR . '/admin/settings/main.php';
 		require_once KLEN_PATH_DIR . '/includes/request.php';
 		require_once KLEN_PATH_DIR . '/includes/shortcode.php';
-		//require_once KLEN_PATH_DIR . '/includes/updater.php';
+		require_once KLEN_PATH_DIR . '/includes/translations.php';
 	}
 
 	/**
