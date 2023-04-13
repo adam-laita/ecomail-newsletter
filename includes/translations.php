@@ -33,14 +33,14 @@ class KLEN_Ecomail_Translations {
 			return;
 		}
 
-		icl_register_string( 'klen', __( 'Title', 'klen' ), get_option( 'klen_labels_title' ) );
-		icl_register_string( 'klen', __( 'Description', 'klen' ), get_option( 'klen_labels_desc' ) );
-		icl_register_string( 'klen', __( 'Label', 'klen' ), get_option( 'klen_labels_label' ) );
-		icl_register_string( 'klen', __( 'Placeholder', 'klen' ), get_option( 'klen_labels_placeholder' ) );
-		icl_register_string( 'klen', __( 'Button Text', 'klen' ), get_option( 'klen_labels_button' ) );
-		icl_register_string( 'klen', __( 'Success Message', 'klen' ), get_option( 'klen_labels_success' ) );
-		icl_register_string( 'klen', __( 'Error Message', 'klen' ), get_option( 'klen_labels_error' ) );
-		icl_register_string( 'klen', __( 'Warning Message', 'klen' ), get_option( 'klen_labels_warning' ) );
+		icl_register_string( 'klen', 'Title', get_option( 'klen_labels_title' ) );
+		icl_register_string( 'klen', 'Description', get_option( 'klen_labels_desc' ) );
+		icl_register_string( 'klen', 'Label', get_option( 'klen_labels_label' ) );
+		icl_register_string( 'klen', 'Placeholder', get_option( 'klen_labels_placeholder' ) );
+		icl_register_string( 'klen', 'Button Text', get_option( 'klen_labels_button' ) );
+		icl_register_string( 'klen', 'Success Message', get_option( 'klen_labels_success' ) );
+		icl_register_string( 'klen', 'Error Message', get_option( 'klen_labels_error' ) );
+		icl_register_string( 'klen', 'Warning Message', get_option( 'klen_labels_warning' ) );
 
 	}
 
