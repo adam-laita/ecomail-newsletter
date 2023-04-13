@@ -52,14 +52,14 @@ class KLEN_Ecomail_Shortcode {
 		wp_enqueue_script( 'klen_form' );
 
 		// Get the labels from the options.
-		$title           = get_option( 'klen_labels_title', __( 'Newsletter', 'klen' ) );
-		$description     = get_option( 'klen_labels_desc', __( 'Sign up for our newsletter to stay connected with us.', 'klen' ) );
-		$label           = get_option( 'klen_labels_label', __( 'Your email address', 'klen' ) );
-		$placeholder     = get_option( 'klen_labels_placeholder', __( 'john.doe@gmail.com', 'klen' ) );
-		$button_text     = get_option( 'klen_labels_button', __( 'Subscribe', 'klen' ) );
-		$success_message = get_option( 'klen_labels_success', __( 'Thank you for subscribing!', 'klen' ) );
-		$error_message   = get_option( 'klen_labels_error', __( 'There was an error processing your request.', 'klen' ) );
-		$warning_message = get_option( 'klen_labels_warning', __( 'Something went wrong, try again.', 'klen' ) );
+		$title           = get_option( 'klen_labels_title' ) ? __( get_option( 'klen_labels_title' ), 'klen' ) : __( 'Newsletter', 'klen' );
+		$description     = get_option( 'klen_labels_desc' ) ? __( get_option( 'klen_labels_desc' ), 'klen' ) : __( 'Sign up for our newsletter to stay connected with us.', 'klen' );
+		$label           = get_option( 'klen_labels_label' ) ? __( get_option( 'klen_labels_label' ), 'klen' ) : __( 'Your email address', 'klen' );
+		$placeholder     = get_option( 'klen_labels_placeholder' ) ? __( get_option( 'klen_labels_placeholder' ), 'klen' ) : __( 'john.doe@gmail.com', 'klen' );
+		$button_text     = get_option( 'klen_labels_button' ) ? __( get_option( 'klen_labels_button' ), 'klen' ) : __( 'Subscribe', 'klen' );
+		$success_message = get_option( 'klen_labels_success' ) ? __( get_option( 'klen_labels_success' ), 'klen' ) : __( 'Thank you for subscribing!', 'klen' );
+		$error_message   = get_option( 'klen_labels_error' ) ? __( get_option( 'klen_labels_error' ), 'klen' ) : __( 'There was an error processing your request.', 'klen' );
+		$warning_message = get_option( 'klen_labels_warning' ) ? __( get_option( 'klen_labels_warning' ), 'klen' ) : __( 'Something went wrong, try again.', 'klen' );
 
 		ob_start(); ?>
         <div class="klen klen_align-<?= $atts['align']; ?>">
@@ -69,11 +69,11 @@ class KLEN_Ecomail_Shortcode {
 					echo '<div class="klen__text">';
 
 					if ( ! empty( $title ) ) {
-						echo '<span class="klen__text-title">' . esc_html( apply_filters( 'klen_content', __( $title, 'klen' ) ) ) . '</span>';
+						echo '<span class="klen__text-title">' . esc_html( apply_filters( 'klen_content', $title ) ) . '</span>';
 					}
 
 					if ( ! empty( $description ) ) {
-						echo ' <p>' . esc_html( apply_filters( 'klen_content', __( $description, 'klen' ) ) ) . '</p>';
+						echo ' <p>' . esc_html( apply_filters( 'klen_content', $description ) ) . '</p>';
 					}
 
 					echo '</div>';
@@ -84,32 +84,32 @@ class KLEN_Ecomail_Shortcode {
                     <div class="klen__form-field klen__form-field_email">
 						<?php
 						if ( ! empty( $label ) ) {
-							echo '<label for="klen_email">' . esc_html( __( $label, 'klen' ) ) . '</label>';
+							echo '<label for="klen_email">' . esc_html( $label ) . '</label>';
 						}
 						?>
 
                         <input id="klen_email" type="email" name="email"
                                placeholder="<?php if ( ! empty( $placeholder ) ) {
-							       echo esc_attr( __( $placeholder, 'klen' ) );
+							       echo esc_attr( $placeholder );
 						       } ?>" required>
                     </div>
 
                     <div class="klen__form-field klen__form-field_submit">
-                        <input type="submit" value="<?= esc_attr( __( $button_text, 'klen' ) ); ?>">
+                        <input type="submit" value="<?= esc_attr( $button_text ); ?>">
                     </div>
                 </form>
 
                 <div class="klen__alerts">
                     <div class="klen__alert klen__alert_success" id="klen_success">
-                        <p><?= esc_html( __( $success_message, 'klen' ) ); ?></p>
+                        <p><?= esc_html( $success_message ); ?></p>
                     </div>
 
                     <div class="klen__alert klen__alert_error" id="klen_error">
-                        <p><?= esc_html( __( $error_message, 'klen' ) ); ?></p>
+                        <p><?= esc_html( $error_message ); ?></p>
                     </div>
 
                     <div class="klen__alert klen__alert_warning" id="klen_warning">
-                        <p><?= esc_html( __( $warning_message, 'klen' ) ); ?></p>
+                        <p><?= esc_html( $warning_message ); ?></p>
                     </div>
                 </div>
             </div>
