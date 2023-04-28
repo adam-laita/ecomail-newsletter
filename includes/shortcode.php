@@ -48,7 +48,7 @@ class KLEN_Ecomail_Shortcode {
 			wp_enqueue_style( 'klen_form' );
 		}
 
-		//Enqueue scripts
+		// Enqueue scripts
 		wp_enqueue_script( 'klen_form' );
 
 		// Get the labels from the options.
