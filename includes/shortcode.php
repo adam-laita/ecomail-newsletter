@@ -94,6 +94,11 @@ class KLEN_Ecomail_Shortcode {
 						       } ?>" required>
                     </div>
 
+                    <div class="klen__form-field" style="display: none;">
+                        <label for="klen_name"><?= __( 'Leave this field blank', 'klen' ); ?></label>
+                        <input id="klen_name" type="text" name="your_name">
+                    </div>
+
                     <div class="klen__form-field klen__form-field_submit">
                         <input type="submit" value="<?= esc_attr( $button_text ); ?>">
                     </div>
