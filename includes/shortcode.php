@@ -168,6 +168,22 @@ class KLEN_Ecomail_Shortcode {
 
 		return $content;
 	}
+
+	/**
+	 * Based on plugin, return correct function for translating
+	 *
+	 * @param $string
+	 *
+	 * @return string
+	 */
+	public function translateString( $string ) {
+
+		if ( function_exists( 'pll__' ) ) {
+			return pll__( $string );
+		}
+
+		return __( $string, 'klen' );
+	}
 }
 
 new KLEN_Ecomail_Shortcode();
