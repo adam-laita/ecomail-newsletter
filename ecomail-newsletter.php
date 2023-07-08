@@ -173,7 +173,7 @@ class KLEN_Ecomail {
 	 *
 	 * @return array Modified plugin action links.
 	 */
-	function addSettingsLink( $actions, $plugin_file ) {
+	public function addSettingsLink( $actions, $plugin_file ) {
 		// Add the settings link only for your plugin
 		if ( plugin_basename( __FILE__ ) === $plugin_file ) {
 			$settings_link = '<a href="' . esc_url( admin_url( 'options-general.php?page=klen_admin_page' ) ) . '">' . __( 'Settings', 'klen' ) . '</a>';
