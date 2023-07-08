@@ -36,7 +36,7 @@ class KLEN_Ecomail_Shortcode {
 
 		// Check if the API key and list ID are set.
 		if ( empty( $api_key ) || empty( $list_id ) ) {
-			$api_message = '<span class="klen__alert klen__alert_warning open">' . __( 'Ecomail Newsletter plugin is not configured correctly. Please check the API key and list ID settings.', 'klen' ) . '</span>';
+			$api_message = '<span class="klen__alert klen__alert_warning open">' . $this->translateString( 'Ecomail Newsletter plugin is not configured correctly. Please check the API key and list ID settings.' ) . '</span>';
 
 			return $api_message;
 		}
@@ -52,14 +52,14 @@ class KLEN_Ecomail_Shortcode {
 		wp_enqueue_script( 'klen_form' );
 
 		// Get the labels from the options.
-		$title           = get_option( 'klen_labels_title' ) ? __( get_option( 'klen_labels_title' ), 'klen' ) : __( 'Newsletter', 'klen' );
-		$description     = get_option( 'klen_labels_desc' ) ? __( get_option( 'klen_labels_desc' ), 'klen' ) : __( 'Sign up for our newsletter to stay connected with us.', 'klen' );
-		$label           = get_option( 'klen_labels_label' ) ? __( get_option( 'klen_labels_label' ), 'klen' ) : __( 'Your email address', 'klen' );
-		$placeholder     = get_option( 'klen_labels_placeholder' ) ? __( get_option( 'klen_labels_placeholder' ), 'klen' ) : __( 'john.doe@gmail.com', 'klen' );
-		$button_text     = get_option( 'klen_labels_button' ) ? __( get_option( 'klen_labels_button' ), 'klen' ) : __( 'Subscribe', 'klen' );
-		$success_message = get_option( 'klen_labels_success' ) ? __( get_option( 'klen_labels_success' ), 'klen' ) : __( 'Thank you for subscribing!', 'klen' );
-		$error_message   = get_option( 'klen_labels_error' ) ? __( get_option( 'klen_labels_error' ), 'klen' ) : __( 'There was an error processing your request.', 'klen' );
-		$warning_message = get_option( 'klen_labels_warning' ) ? __( get_option( 'klen_labels_warning' ), 'klen' ) : __( 'Something went wrong, try again.', 'klen' );
+		$title           = get_option( 'klen_labels_title' ) ? $this->translateString( get_option( 'klen_labels_title' ) ) : $this->translateString( 'Newsletter' );
+		$description     = get_option( 'klen_labels_desc' ) ? $this->translateString( get_option( 'klen_labels_desc' ) ) : $this->translateString( 'Sign up for our newsletter to stay connected with us.' );
+		$label           = get_option( 'klen_labels_label' ) ? $this->translateString( get_option( 'klen_labels_label' ) ) : $this->translateString( 'Your email address' );
+		$placeholder     = get_option( 'klen_labels_placeholder' ) ? $this->translateString( get_option( 'klen_labels_placeholder' ) ) : $this->translateString( 'john.doe@gmail.com' );
+		$button_text     = get_option( 'klen_labels_button' ) ? $this->translateString( get_option( 'klen_labels_button' ) ) : $this->translateString( 'Subscribe' );
+		$success_message = get_option( 'klen_labels_success' ) ? $this->translateString( get_option( 'klen_labels_success' ) ) : $this->translateString( 'Thank you for subscribing!' );
+		$error_message   = get_option( 'klen_labels_error' ) ? $this->translateString( get_option( 'klen_labels_error' ) ) : $this->translateString( 'There was an error processing your request.' );
+		$warning_message = get_option( 'klen_labels_warning' ) ? $this->translateString( get_option( 'klen_labels_warning' ) ) : $this->translateString( 'Something went wrong, try again.' );
 
 		ob_start(); ?>
         <div class="klen klen_align-<?= $atts['align']; ?>">
@@ -92,6 +92,11 @@ class KLEN_Ecomail_Shortcode {
                                placeholder="<?php if ( ! empty( $placeholder ) ) {
 							       echo esc_attr( $placeholder );
 						       } ?>" required>
+                    </div>
+
+                    <div class="klen__form-field" style="display: none;">
+                        <label for="klen_name"><?= $this->translateString( 'Leave this field blank' ); ?></label>
+                        <input id="klen_name" type="text" name="your_name">
                     </div>
 
                     <div class="klen__form-field klen__form-field_submit">
@@ -138,7 +143,7 @@ class KLEN_Ecomail_Shortcode {
 
 		// Check if the API key and list ID are set.
 		if ( empty( $api_key ) || empty( $list_id ) ) {
-			$api_message = '<span class="klen__alert klen__alert_warning open">' . __( 'Ecomail Newsletter plugin is not configured correctly. Please check the API key and list ID settings.', 'klen' ) . '</span>';
+			$api_message = '<span class="klen__alert klen__alert_warning open">' . $this->translateString( 'Ecomail Newsletter plugin is not configured correctly. Please check the API key and list ID settings.' ) . '</span>';
 
 			return $api_message;
 		}
@@ -162,6 +167,22 @@ class KLEN_Ecomail_Shortcode {
 		$content      = str_replace( array_keys( $replacements ), array_values( $replacements ), $content );
 
 		return $content;
+	}
+
+	/**
+	 * Based on plugin, return correct function for translating
+	 *
+	 * @param $string
+	 *
+	 * @return string
+	 */
+	public function translateString( $string ) {
+
+		if ( function_exists( 'pll__' ) ) {
+			return pll__( $string );
+		}
+
+		return __( $string, 'klen' );
 	}
 }
 

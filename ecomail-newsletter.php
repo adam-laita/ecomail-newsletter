@@ -3,7 +3,7 @@
 		Plugin Name: Ecomail Newsletter
 		Plugin URI:  https://github.com/adam-laita/ecomail-newsletter/
 		Description: Ecomail Newsletter plugin.
-		Version:     1.0.0
+		Version:     1.0.1
 		Author:      Daniel Koch, Adam Laita
 		Author URI:  https://github.com/adam-laita/ecomail-newsletter/
 		License:     GPL3
@@ -48,6 +48,8 @@ class KLEN_Ecomail {
 		add_action( 'admin_enqueue_scripts', array( $this, 'registerAdminScripts' ) );
 		add_action( 'admin_menu', array( $this, 'createAdminPage' ) );
 		add_action( 'admin_init', array( $this, 'languageTextdomain' ) );
+		add_filter( 'plugin_action_links', array( $this, 'addSettingsLink' ), 10, 2 );
+
 	}
 
 	/**
@@ -77,6 +79,11 @@ class KLEN_Ecomail {
 	 * @return void
 	 */
 	public function registerFrontendScripts() {
+
+		if ( ! function_exists( 'get_plugin_data' ) ) {
+			require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+		}
+
 		$plugin_meta = get_plugin_data( __FILE__ );
 
 		// Styles for Ecomail form
@@ -156,6 +163,24 @@ class KLEN_Ecomail {
 
 		// Register a new settings appearance tab
 		register_setting( 'klen_appearance', 'klen_appearance_style' );
+	}
+
+	/**
+	 * Add a settings link to the plugin listing page.
+	 *
+	 * @param array $actions Plugin action links.
+	 * @param string $plugin_file Plugin file path.
+	 *
+	 * @return array Modified plugin action links.
+	 */
+	function addSettingsLink( $actions, $plugin_file ) {
+		// Add the settings link only for your plugin
+		if ( plugin_basename( __FILE__ ) === $plugin_file ) {
+			$settings_link = '<a href="' . esc_url( admin_url( 'options-general.php?page=klen_admin_page' ) ) . '">' . __( 'Settings', 'klen' ) . '</a>';
+			array_push( $actions, $settings_link );
+		}
+
+		return $actions;
 	}
 }
 

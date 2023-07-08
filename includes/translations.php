@@ -54,14 +54,23 @@ class KLEN_Ecomail_Translations {
 			return;
 		}
 
-		pll_register_string( __( 'Title', 'klen' ), get_option( 'klen_labels_title' ), 'klen' );
-		pll_register_string( __( 'Description', 'klen' ), get_option( 'klen_labels_desc' ), 'klen' );
-		pll_register_string( __( 'Label', 'klen' ), get_option( 'klen_labels_label' ), 'klen' );
-		pll_register_string( __( 'Placeholder', 'klen' ), get_option( 'klen_labels_placeholder' ), 'klen' );
-		pll_register_string( __( 'Button Text', 'klen' ), get_option( 'klen_labels_button' ), 'klen' );
-		pll_register_string( __( 'Success Message', 'klen' ), get_option( 'klen_labels_success' ), 'klen' );
-		pll_register_string( __( 'Error Message', 'klen' ), get_option( 'klen_labels_error' ), 'klen' );
-		pll_register_string( __( 'Warning Message', 'klen' ), get_option( 'klen_labels_warning' ), 'klen' );
+		$title       = get_option( 'klen_labels_title' ) ? get_option( 'klen_labels_title' ) : 'Title';
+		$desc        = get_option( 'klen_labels_desc' ) ? get_option( 'klen_labels_desc' ) : 'Description';
+		$label       = get_option( 'klen_labels_label' ) ? get_option( 'klen_labels_label' ) : 'Label';
+		$placeholder = get_option( 'klen_labels_placeholder' ) ? get_option( 'klen_labels_placeholder' ) : 'Placeholder';
+		$button      = get_option( 'klen_labels_button' ) ? get_option( 'klen_labels_button' ) : 'Button Text';
+		$success     = get_option( 'klen_labels_success' ) ? get_option( 'klen_labels_success' ) : 'Success Message';
+		$error       = get_option( 'klen_labels_error' ) ? get_option( 'klen_labels_error' ) : 'Error Message';
+		$warning     = get_option( 'klen_labels_warning' ) ? get_option( 'klen_labels_warning' ) : 'Warning Message';
+
+		pll_register_string( 'klen', $title );
+		pll_register_string( 'klen', $desc );
+		pll_register_string( 'klen', $label );
+		pll_register_string( 'klen', $placeholder );
+		pll_register_string( 'klen', $button );
+		pll_register_string( 'klen', $success );
+		pll_register_string( 'klen', $error );
+		pll_register_string( 'klen', $warning );
 
 	}
 
