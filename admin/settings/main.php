@@ -103,7 +103,7 @@ class KLEN_Ecomail_Main {
 
 		echo '<input class="klen-input klen-input_main klen-input_main-list-id" type="number" name="klen_list_id" value="' . esc_attr__( $list_id, 'klen' ) . '" required>';
 
-		if ( ! empty( $list_id ) ) {
+		if ( isset( $list_id ) && isset( $list_valid ) ) {
 			if ( $list_valid == true ) {
 				echo '<span class="icon icon_success"></span>';
 			} else {
