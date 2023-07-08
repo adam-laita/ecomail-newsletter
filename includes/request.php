@@ -62,6 +62,12 @@ class KLEN_Ecomail_Requst {
 		$params = $request->get_params();
 		$email  = sanitize_email( $params['email'] );
 
+		// Check for honeypot
+		$honeypot = $params['your_name'];
+		if ( ! empty( $honeypot ) ) {
+			return new WP_Error( 'error', __( 'Honeypot detected error.', 'klen' ), array( 'status' => 400 ) );
+		}
+
 		// Make the API request to subscribe the user
 		$url = 'https://api2.ecomailapp.cz/lists/' . $list_id . '/subscribe';
 

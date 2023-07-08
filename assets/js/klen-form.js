@@ -2,7 +2,7 @@
     class KlenEcomail {
         constructor() {
             this.form = document.getElementById('klen-ecomail-form');
-            if(!this.form) {
+            if (!this.form) {
                 return;
             }
             this.submitButton = this.form.querySelector('input[type="submit"]');
@@ -26,12 +26,12 @@
             })
                 .then(response => response.json())
                 .then(data => {
-                    if (data.response.message === 'OK') {
+                    if (data.response && data.response.message === 'OK') {
                         this.success.classList.add('open');
                         this.form.reset();
                     } else {
                         this.warning.classList.add('open');
-                        console.error(data.response.message);
+                        console.error(data.message);
                     }
                     this.submitButton.disabled = false;
                 })
