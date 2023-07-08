@@ -77,6 +77,11 @@ class KLEN_Ecomail {
 	 * @return void
 	 */
 	public function registerFrontendScripts() {
+
+		if ( ! function_exists( 'get_plugin_data' ) ) {
+			require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+		}
+
 		$plugin_meta = get_plugin_data( __FILE__ );
 
 		// Styles for Ecomail form
