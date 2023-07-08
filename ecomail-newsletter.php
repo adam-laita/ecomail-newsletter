@@ -3,7 +3,7 @@
 		Plugin Name: Ecomail Newsletter
 		Plugin URI:  https://github.com/adam-laita/ecomail-newsletter/
 		Description: Ecomail Newsletter plugin.
-		Version:     1.0.1
+		Version:     1.0.0
 		Author:      Daniel Koch, Adam Laita
 		Author URI:  https://github.com/adam-laita/ecomail-newsletter/
 		License:     GPL3
