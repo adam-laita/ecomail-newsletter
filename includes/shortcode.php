@@ -96,7 +96,7 @@ class KLEN_Ecomail_Shortcode {
                     </div>
 
 					<?php if ( ! empty( $checkbox ) ) : ?>
-                        <div class="klen__form-field">
+                        <div class="klen__form-field klen__form-field--check">
                             <input type="checkbox" name="klen_checkbox" id="klen_checkbox" value="1">
                             <label for="klen_checkbox"><?= $checkbox; ?></label>
                         </div>
