@@ -56,6 +56,7 @@ class KLEN_Ecomail_Shortcode {
 		$description     = get_option( 'klen_labels_desc' ) ? $this->translateString( get_option( 'klen_labels_desc' ) ) : $this->translateString( 'Sign up for our newsletter to stay connected with us.' );
 		$label           = get_option( 'klen_labels_label' ) ? $this->translateString( get_option( 'klen_labels_label' ) ) : $this->translateString( 'Your email address' );
 		$placeholder     = get_option( 'klen_labels_placeholder' ) ? $this->translateString( get_option( 'klen_labels_placeholder' ) ) : $this->translateString( 'john.doe@gmail.com' );
+		$checkbox        = get_option( 'klen_labels_checkbox' ) ? $this->translateString( get_option( 'klen_labels_checkbox' ) ) : '';
 		$button_text     = get_option( 'klen_labels_button' ) ? $this->translateString( get_option( 'klen_labels_button' ) ) : $this->translateString( 'Subscribe' );
 		$success_message = get_option( 'klen_labels_success' ) ? $this->translateString( get_option( 'klen_labels_success' ) ) : $this->translateString( 'Thank you for subscribing!' );
 		$error_message   = get_option( 'klen_labels_error' ) ? $this->translateString( get_option( 'klen_labels_error' ) ) : $this->translateString( 'There was an error processing your request.' );
@@ -93,6 +94,13 @@ class KLEN_Ecomail_Shortcode {
 							       echo esc_attr( $placeholder );
 						       } ?>" required>
                     </div>
+
+					<?php if ( ! empty( $checkbox ) ) : ?>
+                        <div class="klen__form-field klen__form-field--check">
+                            <input type="checkbox" name="klen_checkbox" id="klen_checkbox" value="1" required>
+                            <label for="klen_checkbox"><?= $checkbox; ?></label>
+                        </div>
+					<?php endif; ?>
 
                     <div class="klen__form-field" style="display: none;">
                         <label for="klen_name"><?= $this->translateString( 'Leave this field blank' ); ?></label>

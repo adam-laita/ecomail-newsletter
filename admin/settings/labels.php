@@ -68,6 +68,14 @@ class KLEN_Ecomail_Labels {
 		);
 
 		add_settings_field(
+			'klen_labels_checkbox_field',
+			__( 'Checkbox above button', 'klen' ) . ' <span class="klen-label_required">*</span>',
+			array( $this, 'checkboxFieldCallback' ),
+			'klen_labels',
+			'klen_labels_settings'
+		);
+
+		add_settings_field(
 			'klen_labels_button_field',
 			__( 'Button Text', 'klen' ) . ' <span class="klen-label_required">*</span>',
 			array( $this, 'buttonFieldCallback' ),
@@ -98,6 +106,7 @@ class KLEN_Ecomail_Labels {
 			'klen_labels',
 			'klen_labels_settings'
 		);
+
 
 	}
 
@@ -196,6 +205,17 @@ class KLEN_Ecomail_Labels {
 		$labels_warning = get_option( 'klen_labels_warning' ) === false ? __( 'Something went wrong, try again.', 'klen' ) : get_option( 'klen_labels_warning' );
 
 		echo '<input class="klen-input klen-input_labels klen-input_labels-warning" type="text" name="klen_labels_warning" value="' . esc_attr__( $labels_warning, 'klen' ) . '" required>';
+	}
+
+	/**
+	 * Checkbox field callback
+	 *
+	 * @return void
+	 */
+	public function checkboxFieldCallback() {
+		$labels_desc = get_option( 'klen_labels_checkbox' ) === false ? '' : get_option( 'klen_labels_checkbox' );
+
+		echo '<textarea class="klen-input klen-input_labels klen-input_labels-desc" name="klen_labels_checkbox">' . esc_attr__( $labels_desc, 'klen' ) . '</textarea><p><small>' . __( 'You can put here HTML.', 'klen' ) . '</small></p>';
 	}
 
 }

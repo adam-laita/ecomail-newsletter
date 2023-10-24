@@ -156,6 +156,7 @@ class KLEN_Ecomail {
 		register_setting( 'klen_labels', 'klen_labels_desc' );
 		register_setting( 'klen_labels', 'klen_labels_label' );
 		register_setting( 'klen_labels', 'klen_labels_placeholder' );
+		register_setting( 'klen_labels', 'klen_labels_checkbox' );
 		register_setting( 'klen_labels', 'klen_labels_button' );
 		register_setting( 'klen_labels', 'klen_labels_success' );
 		register_setting( 'klen_labels', 'klen_labels_error' );
