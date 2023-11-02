@@ -53,7 +53,7 @@ class KLEN_Ecomail_Shortcode {
 
 		// Get the labels from the options.
 		$title           = get_option( 'klen_labels_title' ) ? $this->translateString( get_option( 'klen_labels_title' ) ) : $this->translateString( 'Newsletter' );
-		$description     = get_option( 'klen_labels_desc' ) ? $this->translateString( get_option( 'klen_labels_desc' ) ) : $this->translateString( 'Sign up for our newsletter to stay connected with us.' );
+		$description     = get_option( 'klen_labels_desc' ) ? $this->translateString( get_option( 'klen_labels_desc' ) ) : $this->translateString( 'Join our {{count}} subscribers and stay in touch with us.' );
 		$label           = get_option( 'klen_labels_label' ) ? $this->translateString( get_option( 'klen_labels_label' ) ) : $this->translateString( 'Your email address' );
 		$placeholder     = get_option( 'klen_labels_placeholder' ) ? $this->translateString( get_option( 'klen_labels_placeholder' ) ) : $this->translateString( 'john.doe@gmail.com' );
 		$checkbox        = get_option( 'klen_labels_checkbox' ) ? $this->translateString( get_option( 'klen_labels_checkbox' ) ) : '';
