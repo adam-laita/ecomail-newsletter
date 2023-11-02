@@ -63,8 +63,8 @@ class KLEN_Ecomail_Shortcode {
 		$warning_message = get_option( 'klen_labels_warning' ) ? $this->translateString( get_option( 'klen_labels_warning' ) ) : $this->translateString( 'Something went wrong, try again.' );
 
 		ob_start(); ?>
-        <div class="klen klen_align-<?= $atts['align']; ?>">
-            <div class="klen__wrapper">
+		<div class="klen klen_align-<?= $atts['align']; ?>">
+			<div class="klen__wrapper">
 				<?php
 				if ( ! empty( $title ) || ! empty( $description ) ) {
 					echo '<div class="klen__text">';
@@ -81,52 +81,53 @@ class KLEN_Ecomail_Shortcode {
 				}
 				?>
 
-                <form class="klen__form" id="klen-ecomail-form" method="POST">
-                    <div class="klen__form-field klen__form-field_email">
+				<form class="klen__form" id="klen-ecomail-form" method="POST">
+					<div class="klen__form-field klen__form-field_email">
 						<?php
 						if ( ! empty( $label ) ) {
 							echo '<label for="klen_email">' . esc_html( $label ) . '</label>';
 						}
 						?>
 
-                        <input id="klen_email" type="email" name="email"
-                               placeholder="<?php if ( ! empty( $placeholder ) ) {
-							       echo esc_attr( $placeholder );
-						       } ?>" required>
-                    </div>
+						<input id="klen_email" type="email" name="email" placeholder="<?php if ( ! empty( $placeholder ) ) { echo esc_attr( $placeholder ); } ?>" required>
+					</div>
 
 					<?php if ( ! empty( $checkbox ) ) : ?>
-                        <div class="klen__form-field klen__form-field--check">
-                            <input type="checkbox" name="klen_checkbox" id="klen_checkbox" value="1" required>
-                            <label for="klen_checkbox"><?= $checkbox; ?></label>
-                        </div>
+						<div class="klen__form-field klen__form-field_gdpr">
+							<input type="checkbox" name="klen_gdpr" id="klen_gdpr" value="1" required>
+							<label for="klen_gdpr">
+								<span class="klen__check-tick"></span>
+								
+								<div><?= $checkbox; ?></div>
+							</label>
+						</div>
 					<?php endif; ?>
 
-                    <div class="klen__form-field" style="display: none;">
-                        <label for="klen_name"><?= $this->translateString( 'Leave this field blank' ); ?></label>
-                        <input id="klen_name" type="text" name="your_name">
-                    </div>
+					<div class="klen__form-field" style="display: none;">
+						<label for="klen_name"><?= $this->translateString( 'Leave this field blank' ); ?></label>
+						<input id="klen_name" type="text" name="your_name">
+					</div>
 
-                    <div class="klen__form-field klen__form-field_submit">
-                        <input type="submit" value="<?= esc_attr( $button_text ); ?>">
-                    </div>
-                </form>
+					<div class="klen__form-field klen__form-field_submit">
+						<input type="submit" value="<?= esc_attr( $button_text ); ?>">
+					</div>
+				</form>
 
-                <div class="klen__alerts">
-                    <div class="klen__alert klen__alert_success" id="klen_success">
-                        <p><?= esc_html( $success_message ); ?></p>
-                    </div>
+				<div class="klen__alerts">
+					<div class="klen__alert klen__alert_success" id="klen_success">
+						<p><?= esc_html( $success_message ); ?></p>
+					</div>
 
-                    <div class="klen__alert klen__alert_error" id="klen_error">
-                        <p><?= esc_html( $error_message ); ?></p>
-                    </div>
+					<div class="klen__alert klen__alert_error" id="klen_error">
+						<p><?= esc_html( $error_message ); ?></p>
+					</div>
 
-                    <div class="klen__alert klen__alert_warning" id="klen_warning">
-                        <p><?= esc_html( $warning_message ); ?></p>
-                    </div>
-                </div>
-            </div>
-        </div>
+					<div class="klen__alert klen__alert_warning" id="klen_warning">
+						<p><?= esc_html( $warning_message ); ?></p>
+					</div>
+				</div>
+			</div>
+		</div>
 		<?php return ob_get_clean();
 	}
 

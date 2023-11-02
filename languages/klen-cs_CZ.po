@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Ecomail Newsletter\n"
-"POT-Creation-Date: 2023-04-12 21:07+0200\n"
-"PO-Revision-Date: 2023-04-12 21:08+0200\n"
+"POT-Creation-Date: 2023-11-02 11:26+0100\n"
+"PO-Revision-Date: 2023-11-02 11:26+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: cs_CZ\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n>=2 && n<=4 ? 1 : 2);\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Poedit 3.4.1\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
 "X-Poedit-WPHeader: ecomail-newsletter.php\n"
@@ -46,46 +46,42 @@ msgid "Labels Settings"
 msgstr "Popisky"
 
 #: admin/settings/labels.php:40 includes/translations.php:36
-#: includes/translations.php:57
 msgid "Title"
 msgstr "Nadpis"
 
 #: admin/settings/labels.php:48 includes/translations.php:37
-#: includes/translations.php:58
 msgid "Description"
 msgstr "Popis"
 
 #: admin/settings/labels.php:56 includes/translations.php:38
-#: includes/translations.php:59
 msgid "Label"
 msgstr "Popisek pole"
 
 #: admin/settings/labels.php:64 includes/translations.php:39
-#: includes/translations.php:60
 msgid "Placeholder"
 msgstr "Zástupný text"
 
-#: admin/settings/labels.php:72 includes/translations.php:40
-#: includes/translations.php:61
+#: admin/settings/labels.php:72
+msgid "GDPR Agreement"
+msgstr "GDPR souhlas"
+
+#: admin/settings/labels.php:80 includes/translations.php:40
 msgid "Button Text"
 msgstr "Text tlačítka"
 
-#: admin/settings/labels.php:80 includes/translations.php:41
-#: includes/translations.php:62
+#: admin/settings/labels.php:88 includes/translations.php:41
 msgid "Success Message"
 msgstr "Zpráva o úspěchu"
 
-#: admin/settings/labels.php:88 includes/translations.php:42
-#: includes/translations.php:63
+#: admin/settings/labels.php:96 includes/translations.php:42
 msgid "Error Message"
 msgstr "Chybová zpráva"
 
-#: admin/settings/labels.php:96 includes/translations.php:43
-#: includes/translations.php:64
+#: admin/settings/labels.php:104 includes/translations.php:43
 msgid "Warning Message"
 msgstr "Varovná zpráva"
 
-#: admin/settings/labels.php:110
+#: admin/settings/labels.php:119
 msgid ""
 "You can use <strong>{{count}}</strong> in title and description to view "
 "number of subscribers."
@@ -93,37 +89,45 @@ msgstr ""
 "Můžete použít <strong>{{count}}</strong> v nadpisu a popisu pro zobrazení "
 "počtu odběratelů."
 
-#: admin/settings/labels.php:119 includes/shortcode.php:55
+#: admin/settings/labels.php:128
 msgid "Newsletter"
 msgstr "Newsletter"
 
-#: admin/settings/labels.php:130
+#: admin/settings/labels.php:139
 msgid "Join our {{count}} subscribers and stay in touch with us."
 msgstr "Přidejte se k {{count}} odběratelům a zůstaňte tak s námi v kontaktu."
 
-#: admin/settings/labels.php:141 includes/shortcode.php:57
+#: admin/settings/labels.php:150
 msgid "Your email address"
 msgstr "Vaše e-mailová adresa"
 
-#: admin/settings/labels.php:152 includes/shortcode.php:58
+#: admin/settings/labels.php:161
 msgid "john.doe@gmail.com"
 msgstr "jan.novak@seznam.cz"
 
-#: admin/settings/labels.php:163 includes/shortcode.php:59
+#: admin/settings/labels.php:172
 msgid "Subscribe"
 msgstr "Odebírat"
 
-#: admin/settings/labels.php:174 includes/shortcode.php:60
+#: admin/settings/labels.php:183
 msgid "Thank you for subscribing!"
 msgstr "Děkujeme za přihlášení!"
 
-#: admin/settings/labels.php:185 includes/shortcode.php:61
+#: admin/settings/labels.php:194
 msgid "There was an error processing your request."
 msgstr "Při zpracování vašeho požadavku došlo k chybě."
 
-#: admin/settings/labels.php:196 includes/shortcode.php:62
+#: admin/settings/labels.php:205
 msgid "Something went wrong, try again."
 msgstr "Něco se pokazilo, zkuste to ještě jednou."
+
+#: admin/settings/labels.php:216
+msgid "I agree to the <a href=\"/\" target=\"_blank\">terms and conditions</a>"
+msgstr "Souhlasím s <a href=\"/\" target=\"_blank\">podmínkami</a>"
+
+#: admin/settings/labels.php:218
+msgid "To remove the GDPR checkbox, simply delete its label."
+msgstr "Pro odstranění zaškrtávacího políčka GDPR stačí smazat jeho popisek."
 
 #: admin/settings/main.php:34
 msgid "Main Settings"
@@ -285,30 +289,27 @@ msgstr ""
 "target=\"_blank\" rel=\"nofollow noopener noreferrer\">GitHub repozitáře</a>."
 
 #. Plugin Name of the plugin/theme
-#: ecomail-newsletter.php:123 ecomail-newsletter.php:124
+#: ecomail-newsletter.php:130 ecomail-newsletter.php:131
 msgid "Ecomail Newsletter"
 msgstr "Ecomail Newsletter"
+
+#: ecomail-newsletter.php:180
+#, fuzzy
+#| msgid "Main Settings"
+msgid "Settings"
+msgstr "Hlavní nastavení"
 
 #: includes/request.php:58
 msgid "API key and list ID are not set."
 msgstr "API klíč a ID seznamu nejsou nastaveny."
 
-#: includes/request.php:87
+#: includes/request.php:68
+msgid "Honeypot detected error."
+msgstr ""
+
+#: includes/request.php:93
 msgid "Error while subscribing to Ecomail."
 msgstr "Chyba při přihlášení k odběru Ecomail."
-
-#: includes/shortcode.php:39 includes/shortcode.php:141
-msgid ""
-"Ecomail Newsletter plugin is not configured correctly. Please check the API "
-"key and list ID settings."
-msgstr ""
-"Plugin Ecomail Newsletter není správně nakonfigurován. Zkontrolujte prosím "
-"nastavení API klíče a ID seznamu."
-
-#: includes/shortcode.php:56
-msgid "Sign up for our newsletter to stay connected with us."
-msgstr ""
-"Přihlaste se k našemu odběru newsletteru a zůstaňte tak s námi ve spojení."
 
 #. Plugin URI of the plugin/theme
 #. Author URI of the plugin/theme
@@ -322,6 +323,24 @@ msgstr "Ecomail Newsletter plugin."
 #. Author of the plugin/theme
 msgid "Daniel Koch, Adam Laita"
 msgstr "Daniel Koch, Adam Laita"
+
+#~ msgid ""
+#~ "Add a label for the checkbox to add consent to the form.<br>You can use "
+#~ "HTML tags."
+#~ msgstr ""
+#~ "Přidejte popisek pro zaškrtávací políčko pro přidání souhlasu do "
+#~ "formuláře.<br>Můžete využít HTML značky."
+
+#~ msgid ""
+#~ "Ecomail Newsletter plugin is not configured correctly. Please check the "
+#~ "API key and list ID settings."
+#~ msgstr ""
+#~ "Plugin Ecomail Newsletter není správně nakonfigurován. Zkontrolujte "
+#~ "prosím nastavení API klíče a ID seznamu."
+
+#~ msgid "Sign up for our newsletter to stay connected with us."
+#~ msgstr ""
+#~ "Přihlaste se k našemu odběru newsletteru a zůstaňte tak s námi ve spojení."
 
 #~ msgid "You can change the form labels in this setting."
 #~ msgstr "V tomto nastavení můžete měnit popisky formuláře."

@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Ecomail Newsletter\n"
-"POT-Creation-Date: 2023-04-12 21:07+0200\n"
+"POT-Creation-Date: 2023-11-02 11:26+0100\n"
 "PO-Revision-Date: 2023-03-27 20:14+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Poedit 3.4.1\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
 "X-Poedit-WPHeader: ecomail-newsletter.php\n"
@@ -46,81 +46,86 @@ msgid "Labels Settings"
 msgstr ""
 
 #: admin/settings/labels.php:40 includes/translations.php:36
-#: includes/translations.php:57
 msgid "Title"
 msgstr ""
 
 #: admin/settings/labels.php:48 includes/translations.php:37
-#: includes/translations.php:58
 msgid "Description"
 msgstr ""
 
 #: admin/settings/labels.php:56 includes/translations.php:38
-#: includes/translations.php:59
 msgid "Label"
 msgstr ""
 
 #: admin/settings/labels.php:64 includes/translations.php:39
-#: includes/translations.php:60
 msgid "Placeholder"
 msgstr ""
 
-#: admin/settings/labels.php:72 includes/translations.php:40
-#: includes/translations.php:61
+#: admin/settings/labels.php:72
+msgid "GDPR Agreement"
+msgstr ""
+
+#: admin/settings/labels.php:80 includes/translations.php:40
 msgid "Button Text"
 msgstr ""
 
-#: admin/settings/labels.php:80 includes/translations.php:41
-#: includes/translations.php:62
+#: admin/settings/labels.php:88 includes/translations.php:41
 msgid "Success Message"
 msgstr ""
 
-#: admin/settings/labels.php:88 includes/translations.php:42
-#: includes/translations.php:63
+#: admin/settings/labels.php:96 includes/translations.php:42
 msgid "Error Message"
 msgstr ""
 
-#: admin/settings/labels.php:96 includes/translations.php:43
-#: includes/translations.php:64
+#: admin/settings/labels.php:104 includes/translations.php:43
 msgid "Warning Message"
 msgstr ""
 
-#: admin/settings/labels.php:110
+#: admin/settings/labels.php:119
 msgid ""
 "You can use <strong>{{count}}</strong> in title and description to view "
 "number of subscribers."
 msgstr ""
 
-#: admin/settings/labels.php:119 includes/shortcode.php:55
+#: admin/settings/labels.php:128
 msgid "Newsletter"
 msgstr ""
 
-#: admin/settings/labels.php:130
+#: admin/settings/labels.php:139
 msgid "Join our {{count}} subscribers and stay in touch with us."
 msgstr ""
 
-#: admin/settings/labels.php:141 includes/shortcode.php:57
+#: admin/settings/labels.php:150
 msgid "Your email address"
 msgstr ""
 
-#: admin/settings/labels.php:152 includes/shortcode.php:58
+#: admin/settings/labels.php:161
 msgid "john.doe@gmail.com"
 msgstr ""
 
-#: admin/settings/labels.php:163 includes/shortcode.php:59
+#: admin/settings/labels.php:172
 msgid "Subscribe"
 msgstr ""
 
-#: admin/settings/labels.php:174 includes/shortcode.php:60
+#: admin/settings/labels.php:183
 msgid "Thank you for subscribing!"
 msgstr ""
 
-#: admin/settings/labels.php:185 includes/shortcode.php:61
+#: admin/settings/labels.php:194
 msgid "There was an error processing your request."
 msgstr ""
 
-#: admin/settings/labels.php:196 includes/shortcode.php:62
+#: admin/settings/labels.php:205
 msgid "Something went wrong, try again."
+msgstr ""
+
+#: admin/settings/labels.php:216
+msgid ""
+"I agree to the <a href=\"/\" target=\"_blank\">terms and conditions</a>"
+msgstr ""
+
+#: admin/settings/labels.php:218
+msgid "To remove the GDPR checkbox, simply delete its label."
 msgstr ""
 
 #: admin/settings/main.php:34
@@ -254,26 +259,24 @@ msgid ""
 msgstr ""
 
 #. Plugin Name of the plugin/theme
-#: ecomail-newsletter.php:123 ecomail-newsletter.php:124
+#: ecomail-newsletter.php:130 ecomail-newsletter.php:131
 msgid "Ecomail Newsletter"
+msgstr ""
+
+#: ecomail-newsletter.php:180
+msgid "Settings"
 msgstr ""
 
 #: includes/request.php:58
 msgid "API key and list ID are not set."
 msgstr ""
 
-#: includes/request.php:87
+#: includes/request.php:68
+msgid "Honeypot detected error."
+msgstr ""
+
+#: includes/request.php:93
 msgid "Error while subscribing to Ecomail."
-msgstr ""
-
-#: includes/shortcode.php:39 includes/shortcode.php:141
-msgid ""
-"Ecomail Newsletter plugin is not configured correctly. Please check the API "
-"key and list ID settings."
-msgstr ""
-
-#: includes/shortcode.php:56
-msgid "Sign up for our newsletter to stay connected with us."
 msgstr ""
 
 #. Plugin URI of the plugin/theme

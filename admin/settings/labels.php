@@ -69,7 +69,7 @@ class KLEN_Ecomail_Labels {
 
 		add_settings_field(
 			'klen_labels_checkbox_field',
-			__( 'Checkbox above button', 'klen' ) . ' <span class="klen-label_required">*</span>',
+			__( 'GDPR Agreement', 'klen' ),
 			array( $this, 'checkboxFieldCallback' ),
 			'klen_labels',
 			'klen_labels_settings'
@@ -213,9 +213,9 @@ class KLEN_Ecomail_Labels {
 	 * @return void
 	 */
 	public function checkboxFieldCallback() {
-		$labels_desc = get_option( 'klen_labels_checkbox' ) === false ? '' : get_option( 'klen_labels_checkbox' );
+		$labels_desc = get_option( 'klen_labels_checkbox' ) === false ? __( 'I agree to the <a href="/" target="_blank">terms and conditions</a>', 'klen' ) : get_option( 'klen_labels_checkbox' );
 
-		echo '<textarea class="klen-input klen-input_labels klen-input_labels-desc" name="klen_labels_checkbox">' . esc_attr__( $labels_desc, 'klen' ) . '</textarea><p><small>' . __( 'You can put here HTML.', 'klen' ) . '</small></p>';
+		echo '<textarea class="klen-input klen-input_labels klen-input_labels-desc" name="klen_labels_checkbox">' . esc_attr__( $labels_desc, 'klen' ) . '</textarea><p><small>' . __( 'To remove the GDPR checkbox, simply delete its label.', 'klen' ) . '</small></p>';
 	}
 
 }
