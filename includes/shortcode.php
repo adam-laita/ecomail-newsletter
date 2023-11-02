@@ -56,7 +56,7 @@ class KLEN_Ecomail_Shortcode {
 		$description     = get_option( 'klen_labels_desc' ) ? $this->translateString( get_option( 'klen_labels_desc' ) ) : $this->translateString( 'Join our {{count}} subscribers and stay in touch with us.' );
 		$label           = get_option( 'klen_labels_label' ) ? $this->translateString( get_option( 'klen_labels_label' ) ) : $this->translateString( 'Your email address' );
 		$placeholder     = get_option( 'klen_labels_placeholder' ) ? $this->translateString( get_option( 'klen_labels_placeholder' ) ) : $this->translateString( 'john.doe@gmail.com' );
-		$checkbox        = get_option( 'klen_labels_checkbox' ) ? $this->translateString( get_option( 'klen_labels_checkbox' ) ) : '';
+		$checkbox        = get_option( 'klen_labels_checkbox' ) ? $this->translateString( get_option( 'klen_labels_checkbox' ) ) : $this->translateString( 'I agree to the <a href="/" target="_blank">terms and conditions</a>' );
 		$button_text     = get_option( 'klen_labels_button' ) ? $this->translateString( get_option( 'klen_labels_button' ) ) : $this->translateString( 'Subscribe' );
 		$success_message = get_option( 'klen_labels_success' ) ? $this->translateString( get_option( 'klen_labels_success' ) ) : $this->translateString( 'Thank you for subscribing!' );
 		$error_message   = get_option( 'klen_labels_error' ) ? $this->translateString( get_option( 'klen_labels_error' ) ) : $this->translateString( 'There was an error processing your request.' );
