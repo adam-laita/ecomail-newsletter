@@ -68,7 +68,7 @@ class KLEN_Ecomail_Main {
 	 * @return void
 	 */
 	public function sectionCallback() {
-		echo __( 'The API key and list ID need to be filled in for the plugin to work properly. The number of subscribers will be shown after the API key is retrieved.', 'klen' );
+		echo __( 'For the plugin to work properly, the API key and list ID must be filled in (see description on the right). The number of subscribers will be displayed after the API key is loaded.', 'klen' );
 	}
 
 	/**

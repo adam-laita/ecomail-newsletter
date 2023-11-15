@@ -116,7 +116,7 @@ class KLEN_Ecomail_Labels {
 	 * @return void
 	 */
 	public function sectionCallback() {
-		echo __( 'You can use <strong>{{count}}</strong> in title and description to view number of subscribers.', 'klen' );
+		echo __( 'You can always use <strong>{{count}}</strong> in the title and description to show the current number of subscribers.', 'klen' );
 	}
 
 	/**

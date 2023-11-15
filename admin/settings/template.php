@@ -70,17 +70,17 @@ $tab         = isset( $_GET['tab'] ) ? $_GET['tab'] : $default_tab;
         <div class="klen-admin__aside-wrapper">
             <h3><?php _e( 'How to get the API key?', 'klen' ); ?></h3>
 
-            <p><?php _e( 'Just log into the Ecomail administration on <a href="https://www.ecomail.cz/" target="_blank" rel="nofollow noopener noreferrer">Ecomail.cz</a>, where you need to click on your account/email in the upper right corner and select <strong>Manage your account</strong>. Then just select <strong>Integration</strong> in the left panel and copy your API key.', 'klen' ); ?></p>
+            <p><?php _e( 'Just log into the Ecomail administration on <a href="https://www.ecomail.cz/" target="_blank" rel="nofollow noopener noreferrer">Ecomail.cz</a>, click on your account/email in the upper right corner and select <strong>Manage your account</strong>. Then just select <strong>Integration</strong> in the left panel and copy API key.', 'klen' ); ?></p>
 
-            <p><?php _e( 'The <strong>List ID</strong> is always 1 by default. If you want to select a different list, you can find its ID in the URL in the Ecomail administration. If you don\'t know what to do, watch the video above.', 'klen' ); ?></p>
+            <p><?php _e( 'The <strong>List ID</strong> is always 1 by default. If you want to select a different list, you can find its ID in the URL in the Ecomail administration.', 'klen' ); ?></p>
 
             <h3><?php _e( 'How to display the form?', 'klen' ); ?></h3>
 
-            <p><?php _e( 'The form is displayed through a shortcode. You can use this piece of "code" anywhere on the web, especially in text blocks or WYSIWYG editors. You can use 2 shortcodes:<br><br><strong style="color: rgb(71, 173, 0);">[ecomail-newsletter]</strong><br> - displays the newsletter subscription form and has 1 optional align parameter with values "left", "center" or "right", for example [ecomail-newsletter align="right"]<br><br><strong style="color: rgb(71, 173, 0);">[ecomail-subscribers]</strong><br> - displays the number of subscribed subscribers and has 1 optional style parameter with values "bold" or "italic", for example [ecomail-subscribers style="bold"]', 'klen' ); ?></p>
+            <p><?php _e( 'The form is displayed through a shortcode. You can use this piece of code anywhere on the web, especially in text blocks or WYSIWYG editors. You can use two shortcodes:<br><br><strong style="color: rgb(71, 173, 0);">[ecomail-newsletter]</strong><br>Displays the newsletter subscription form and allows you to select the align parameter. The choices are "left", "center" or "right. The resulting code looks like [ecomail-newsletter align="right"].<br><br><strong style="color: rgb(71, 173, 0);">[ecomail-subscribers]</strong><br>Displays the number of subscribed subscribers and you can select the style parameter. You can choose between "bold" or "italic". The resulting code looks like [ecomail-subscribers style="bold"].', 'klen' ); ?></p>
 
             <h3><?php _e( 'Support', 'klen' ); ?></h3>
 
-            <p><?php _e( 'If you have any problems, please add a issue to our <a href="https://github.com/adam-laita/ecomail-newsletter/issues" target="_blank" rel="nofollow noopener noreferrer">GitHub repository</a>.', 'klen' ); ?></p>
+            <p><?php _e( 'In case of any problems, please add "New issue" to our <a href="https://github.com/dankoch-cz/ecomail-newsletter/issues" target="_blank" rel="nofollow noopener noreferrer">GitHub repository</a>.', 'klen' ); ?></p>
         </div>
     </div>
 </div>
